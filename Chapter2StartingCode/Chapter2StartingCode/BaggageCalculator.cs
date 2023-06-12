@@ -41,13 +41,6 @@ public class BaggageCalculator
             Console.WriteLine("Carry-on bag price: " + carryOnPrice.ToString("C"));
         }
 
-        if (totalPrice > 500)
-        {
-            decimal discount = totalPrice * 0.1m;
-            Console.WriteLine("Big spender discount: " + discount.ToString("C"));
-            totalPrice -= discount;
-        }
-
         return totalPrice;
     }
 }
