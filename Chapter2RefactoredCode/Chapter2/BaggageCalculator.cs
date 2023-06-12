@@ -21,8 +21,8 @@ public class BaggageCalculator {
             decimal totChecked = 0;
             if (numChecked <= numPassengers) {
                 totChecked = numChecked * 40.00M;
-                Console.WriteLine($"Checked bag price: {totChecked:C}");
-                totalPrice += totChecked;
+                Console.WriteLine($"Checked bag price: {numChecked * 40.00M}");
+                totalPrice += numChecked * 40.00M;
             } else {
                 totChecked = numPassengers * 40.00M;
                 totChecked += (numChecked - numPassengers) * 50.00M;

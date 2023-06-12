@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33723.286
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chapter2StartingCode", "Chapter2StartingCode\Chapter2StartingCode.csproj", "{777939EE-8DDA-46AE-9205-DD483E08CC65}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chapter2", "Chapter2\Chapter2.csproj", "{777939EE-8DDA-46AE-9205-DD483E08CC65}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chapter2Tests", "Chapter2Tests\Chapter2Tests.csproj", "{70512460-2A1A-46CD-9C5C-580B2450836F}"
 EndProject
