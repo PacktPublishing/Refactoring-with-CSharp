@@ -23,23 +23,24 @@ public class BaggageCalculator {
         }
 
         if (isHoliday) {
-            Console.WriteLine($"Holiday Fee: {total * HolidayTravelFeePercent}");
-            total += total * HolidayTravelFeePercent;
+            decimal holidayFee = total * HolidayTravelFeePercent;
+            Console.WriteLine($"Holiday Fee: {holidayFee}");
+            total += holidayFee;
         }
 
         return total;
     }
 
     private static decimal ApplyCheckedBagFee(int numChecked, int numPassengers) {
-        decimal checkedFee;
+
         if (numChecked <= numPassengers) {
-            checkedFee = numChecked * FirstBagFee;
-        } else {
-            decimal firstBagFee = numPassengers * FirstBagFee;
-            int additionalBags = numChecked - numPassengers;
-            decimal additionalBagFee = additionalBags * ExtraBagFee;
-            checkedFee = firstBagFee + additionalBagFee;
+            return numChecked * FirstBagFee;
         }
-        return checkedFee;
+
+        decimal firstBagFee = numPassengers * FirstBagFee;
+        int additionalBags = numChecked - numPassengers;
+        decimal additionalBagFee = additionalBags * ExtraBagFee;
+
+        return firstBagFee + additionalBagFee;
     }
 }

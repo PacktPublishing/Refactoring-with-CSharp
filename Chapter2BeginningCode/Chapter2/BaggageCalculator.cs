@@ -34,4 +34,10 @@ public class BaggageCalculator {
 
         return total;
     }
+    private decimal CalculatePriceFlat(int numBags) {
+        decimal total = numBags * 35.5M;
+
+        // Business says to use a flat 100 regardless of count
+        return 100M;
+    }
 }
