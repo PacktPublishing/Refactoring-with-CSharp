@@ -7,7 +7,7 @@ public class BaggageCalculator {
         set { holidayTravelFeePercent = value; }
     }
 
-    public decimal CalculatePrice(int numChecked, int numCarryOn, 
+    public decimal CalculatePrice(int numChecked, int numCarryOn,
         int numPassengers, DateTime travelTime) {
         decimal total = 0;
 
@@ -28,7 +28,7 @@ public class BaggageCalculator {
         }
 
         if (travelTime.Month >= 11 || travelTime.Month <= 2) {
-            Console.WriteLine($"Holiday Travel Fee: {total * HolidayTravelFeePercent}");
+            Console.WriteLine($"Holiday Fee: {total * HolidayTravelFeePercent}");
             total += total * HolidayTravelFeePercent;
         }
 
