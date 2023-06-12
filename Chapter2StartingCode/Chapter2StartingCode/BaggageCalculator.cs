@@ -1,44 +1,46 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Packt.CloudySkiesAir.Chapter2;
+﻿namespace Packt.CloudySkiesAir.Chapter2;
 
 public class BaggageCalculator
 {
-    private decimal basePrice = 100.0M;
-    public decimal BasePrice
+    private int maxCarryOnBagsPerPerson = 1;
+    public int MaxCarryBagsPerPerson
     {
-        get { return basePrice; }
-        set { basePrice = value; }
+        get { return maxCarryOnBagsPerPerson; }
+        set { maxCarryOnBagsPerPerson = value; }
     }
 
     public decimal CalculatePrice(int numChecked, int numCarryOn, int numPassengers)
     {
+        if (numCarryOn > numPassengers * MaxCarryBagsPerPerson)
+            throw new ArgumentException("More carry-on bags than allowed");
+
         decimal totalPrice = 0;
-
-        decimal basePrice = BasePrice;
-        if (numPassengers > 1)
-        {
-            basePrice += (numPassengers - 1) * (totalPrice * 0.05m);
-        } 
-        totalPrice += basePrice;
-        Console.WriteLine("Base price: " + basePrice.ToString("C"));
-
-        if (numChecked > 0)
-        {
-            decimal checkedPrice = numChecked * 25 * (numChecked > 5 ? 0.1m : 1);
-            totalPrice += checkedPrice;
-            Console.WriteLine("Checked bag price: " + checkedPrice.ToString("C"));
-        }
 
         if (numCarryOn > 0)
         {
-            decimal carryOnPrice = numCarryOn * 10 * (numCarryOn > 3 ? 0.05m : 1);
-            totalPrice += carryOnPrice;
-            Console.WriteLine("Carry-on bag price: " + carryOnPrice.ToString("C"));
+            decimal totCarryOn = MaxCarryBagsPerPerson * numCarryOn;
+            totalPrice += totCarryOn * 30.00M;
+            Console.WriteLine($"Carry-on bag price: {totCarryOn:C}");
+        }
+
+        if (numChecked > 0)
+        {
+            decimal totChecked = 0;
+            if (numChecked <= numPassengers)
+            {
+                totChecked = numChecked * 40.00M;
+
+                totalPrice += totChecked;
+                Console.WriteLine($"Checked bag price: {totChecked:C}");
+            }
+            else
+            {
+                totChecked = numPassengers * 40.00M;
+                totChecked += (numChecked - numPassengers) * 50.00M;
+
+                totalPrice += totChecked;
+                Console.WriteLine($"Checked bag price: {totChecked:C}");
+            }
         }
 
         return totalPrice;

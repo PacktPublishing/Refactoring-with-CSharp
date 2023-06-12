@@ -15,7 +15,7 @@ public class BaggageCalculatorTests
         decimal actualPrice = calculator.CalculatePrice(numChecked, numCarryOn, numPassengers);
 
         // Assert
-        Assert.Equal(100, actualPrice);
+        Assert.Equal(0, actualPrice);
     }
 
     [Fact]
@@ -31,7 +31,7 @@ public class BaggageCalculatorTests
         decimal actualPrice = calculator.CalculatePrice(numChecked, numCarryOn, numPassengers);
 
         // Assert
-        Assert.Equal(195, actualPrice);
+        Assert.Equal(190M, actualPrice);
     }
 
     [Fact]
@@ -47,7 +47,7 @@ public class BaggageCalculatorTests
         decimal actualPrice = calculator.CalculatePrice(numChecked, numCarryOn, numPassengers);
 
         // Assert
-        Assert.Equal(110, actualPrice);
+        Assert.Equal(30M, actualPrice);
     }
 
     [Fact]
@@ -63,6 +63,6 @@ public class BaggageCalculatorTests
         decimal actualPrice = calculator.CalculatePrice(numChecked, numCarryOn, numPassengers);
 
         // Assert
-        Assert.Equal(160, actualPrice);
+        Assert.Equal(120M, actualPrice);
     }
 }
