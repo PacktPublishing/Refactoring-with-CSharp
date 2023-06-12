@@ -8,21 +8,24 @@ namespace Packt.CloudySkiesAir.Chapter2;
 
 public class BaggageCalculator
 {
+    private decimal basePrice = 100.0M;
+    public decimal BasePrice
+    {
+        get { return basePrice; }
+        set { basePrice = value; }
+    }
+
     public decimal CalculatePrice(int numChecked, int numCarryOn, int numPassengers)
     {
         decimal totalPrice = 0;
 
+        decimal basePrice = BasePrice;
         if (numPassengers > 1)
         {
-            totalPrice = 100;
-            totalPrice = ((numPassengers - 1) * (totalPrice * 0.05m)) + 100;
-            Console.WriteLine("Base price: " + totalPrice.ToString("C"));
+            basePrice += (numPassengers - 1) * (totalPrice * 0.05m);
         } 
-        else
-        {
-            totalPrice = 100;
-            Console.WriteLine("Base price: " + totalPrice.ToString("C"));
-        }
+        totalPrice += basePrice;
+        Console.WriteLine("Base price: " + basePrice.ToString("C"));
 
         if (numChecked > 0)
         {
