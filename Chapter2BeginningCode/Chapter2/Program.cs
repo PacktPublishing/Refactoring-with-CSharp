@@ -9,7 +9,8 @@ internal class Program
         int numPassengers = 2;
 
         BaggageCalculator baggageCalculator = new();
-        decimal price = baggageCalculator.CalculatePrice(numChecked, numCarryOn, numPassengers, DateTime.Now);
+        DateTime travelTime = DateTime.Now;
+        decimal price = baggageCalculator.CalculatePrice(numChecked, numCarryOn, numPassengers, travelTime);
 
         Console.WriteLine($"{numChecked} checked and {numCarryOn} carry-on bags for {numPassengers} passengers is {price:C}");
     }
