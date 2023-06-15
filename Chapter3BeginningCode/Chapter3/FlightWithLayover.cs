@@ -30,10 +30,8 @@ public class FlightWithLayover : FlightBase {
     }
 
     private string DoTheHourFormat(double numHours) {
-        if (numHours == 1) {
-            return numHours + " hour";
-        } else {
-            return numHours + " hours";
-        }
+        return (numHours == 1)
+            ? $"{numHours} hour"
+            : $"{numHours} hours";
     }
 }

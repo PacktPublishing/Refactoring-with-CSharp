@@ -1,6 +1,6 @@
 namespace Packt.CloudySkiesAir.Chapter3;
 
-public class FlightBase {
+public abstract class FlightBase {
     public string DepartureLocation { get; set; }
     public string ArrivalLocation { get; set; }
     public DateTime DepartureTime { get; set; }
