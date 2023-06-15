@@ -15,7 +15,7 @@ public class FlightWithLayoverTests
     public void FlightWithLayoverToString_ReturnsExpectedString()
     {
         // Arrange
-        var flightWithLayover = new FlightWithLayover(_departureLocation, _departureTime, _departureDuration, _layoverLocation, _layoverDuration, _arrivalLocation, _arrivalTime);
+        var flightWithLayover = new FlightWithLayover(_departureLocation, _layoverLocation, _arrivalTime, _layoverDuration, _departureTime, _arrivalLocation, _departureDuration);
         var expectedResult = $"Flight from {_departureLocation} to {_arrivalLocation} with a layover at {_layoverLocation} for {_layoverDuration.TotalHours} hours. Overall time: {flightWithLayover.TotalDuration.TotalHours} hours";
 
         // Act
@@ -29,7 +29,7 @@ public class FlightWithLayoverTests
     public void FlightWithLayoverGetFlightDetails_ReturnsExpectedString()
     {
         // Arrange
-        var flightWithLayover = new FlightWithLayover(_departureLocation, _departureTime, _departureDuration, _layoverLocation, _layoverDuration, _arrivalLocation, _arrivalTime);
+        var flightWithLayover = new FlightWithLayover(_departureLocation, _layoverLocation, _arrivalTime, _layoverDuration, _departureTime, _arrivalLocation, _departureDuration);
         var expectedResult = $"Flight from {_departureLocation} to {_arrivalLocation} with a layover at {_layoverLocation} for {_layoverDuration.TotalHours} hours. Overall time: {flightWithLayover.TotalDuration.TotalHours} hours";
 
         // Act
@@ -43,7 +43,7 @@ public class FlightWithLayoverTests
     public void FlightWithLayoverTotalDuration_ReturnsExpectedTimeSpan()
     {
         // Arrange
-        var flightWithLayover = new FlightWithLayover(_departureLocation, _departureTime, _departureDuration, _layoverLocation, _layoverDuration, _arrivalLocation, _arrivalTime);
+        var flightWithLayover = new FlightWithLayover(_departureLocation, _layoverLocation, _arrivalTime, _layoverDuration, _departureTime, _arrivalLocation, _departureDuration);
         var expectedTotalDuration = _departureDuration + _layoverDuration + (_arrivalTime - _departureTime);
 
         // Act

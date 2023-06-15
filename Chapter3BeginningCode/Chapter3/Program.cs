@@ -12,7 +12,7 @@ internal class Program
         DateTime departureTime = DateTime.Now;
         switch (response.ToLowerInvariant()) {
             case "l":
-                selectedFlight = new FlightWithLayover("CMH", departureTime, TimeSpan.FromHours(2.75), "MCI", TimeSpan.FromHours(3), "DFW", departureTime.AddHours(1.5));
+                selectedFlight = new FlightWithLayover("CMH", "MCI", departureTime.AddHours(1.5), TimeSpan.FromHours(3), departureTime, "DFW", TimeSpan.FromHours(2.75));
                 break;
             case "d":
                 selectedFlight = new DirectFlight("CMH", departureTime, "MCI", departureTime.AddHours(3));

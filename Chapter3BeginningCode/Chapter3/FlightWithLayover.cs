@@ -5,9 +5,8 @@ public class FlightWithLayover : FlightBase {
     public TimeSpan LayoverDuration { get; set; }
     public TimeSpan DepartureDuration { get; set; }
 
-    public FlightWithLayover(string depLoc, DateTime depTime, TimeSpan depDur,
-                             string layLoc, TimeSpan layDur,
-                             string arrLoc, DateTime arrTime) 
+    public FlightWithLayover(string depLoc, string layLoc, DateTime arrTime, TimeSpan layDur, 
+        DateTime depTime, string arrLoc, TimeSpan depDur)
         : base(depLoc, depTime, arrLoc, arrTime) {
         LayoverLocation = layLoc;
         LayoverDuration = layDur;
@@ -25,12 +24,12 @@ public class FlightWithLayover : FlightBase {
     }
 
     public override string GetFlightDetails() {
-        return $"Flight from {DepartureLocation} to {ArrivalLocation} with a layover at {LayoverLocation} " +
-            $"for {MakeTheHoursNotLookAwful(LayoverDuration.TotalHours)}. " +
-            $"Overall time: {MakeTheHoursNotLookAwful(TotalDuration.TotalHours)}";
+        return $"Flight from {DepartureLocation} to {ArrivalLocation} with a " +
+            $"layover at {LayoverLocation} for {DoTheHourFormat(LayoverDuration.TotalHours)}. " +
+            $"Overall time: {DoTheHourFormat(TotalDuration.TotalHours)}";
     }
 
-    private string MakeTheHoursNotLookAwful(double numHours) {
+    private string DoTheHourFormat(double numHours) {
         if (numHours == 1) {
             return numHours + " hour";
         } else {
