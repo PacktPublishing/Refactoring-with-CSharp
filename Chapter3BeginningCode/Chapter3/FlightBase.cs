@@ -21,6 +21,6 @@ public class FlightBase {
     }
 
     public virtual string GetFlightDetails() {
-        return $"From {DepartureLocation} to {ArrivalLocation} on {DepartureTime}. Arriving at {ArrivalTime}";
+        return $"from {DepartureLocation} to {ArrivalLocation} on {DepartureTime}. Arriving at {ArrivalTime}";
     }
 }

@@ -5,7 +5,7 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <RootNamespace>Packt.CloudySkiesAir.Chapter2</RootNamespace>
+    <RootNamespace>Packt.CloudySkiesAir.Chapter3</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

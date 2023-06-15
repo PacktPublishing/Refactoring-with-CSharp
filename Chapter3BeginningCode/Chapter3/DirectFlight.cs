@@ -10,6 +10,6 @@ public class DirectFlight : FlightBase {
     }
 
     public override string GetFlightDetails() {
-        return $"Direct Flight. " + base.GetFlightDetails();
+        return $"Direct flight " + base.GetFlightDetails();
     }
 }
