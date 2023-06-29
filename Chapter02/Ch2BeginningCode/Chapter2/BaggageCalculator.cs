@@ -2,10 +2,10 @@
 
 public class BaggageCalculator {
 
-  private decimal holidayTravelFeePercent = 0.1M;
-  public decimal HolidayTravelFeePercent {
-    get { return holidayTravelFeePercent; }
-    set { holidayTravelFeePercent = value; }
+  private decimal holidayFeePercent = 0.1M;
+  public decimal HolidayFeePercent {
+    get { return holidayFeePercent; }
+    set { holidayFeePercent = value; }
   }
 
   public decimal CalculatePrice(int bags, 
@@ -33,9 +33,9 @@ public class BaggageCalculator {
 
     if (travelTime.Month >= 11 || travelTime.Month <= 2) {
       Console.WriteLine("Holiday Fee: " + 
-        (total * HolidayTravelFeePercent));
+        (total * HolidayFeePercent));
 
-      total += total * HolidayTravelFeePercent;
+      total += total * HolidayFeePercent;
     }
 
     return total;
