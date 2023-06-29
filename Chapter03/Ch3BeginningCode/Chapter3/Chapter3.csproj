@@ -9,11 +9,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <EditorConfigFiles Remove="C:\Dev\repos\RefactoringWithCSharp\Chapter3BeginningCode\Chapter3\.editorconfig" />
+    <EditorConfigFiles Remove="..\.editorconfig" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="C:\Dev\repos\RefactoringWithCSharp\Chapter3BeginningCode\Chapter3\.editorconfig" />
+    <None Include="..\.editorconfig" />
   </ItemGroup>
 
 </Project>
