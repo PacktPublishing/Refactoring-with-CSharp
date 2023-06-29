@@ -8,4 +8,12 @@
     <RootNamespace>Packt.CloudySkiesAir.Chapter2</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <EditorConfigFiles Remove="C:\Dev\repos\RefactoringWithCSharp\Chapter2BeginningCode\Chapter2\.editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="C:\Dev\repos\RefactoringWithCSharp\Chapter2BeginningCode\Chapter2\.editorconfig" />
+  </ItemGroup>
+
 </Project>

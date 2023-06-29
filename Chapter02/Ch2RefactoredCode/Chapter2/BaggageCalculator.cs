@@ -1,46 +1,49 @@
 ﻿namespace Packt.CloudySkiesAir.Chapter2;
 
 public class BaggageCalculator {
-    private const decimal CarryOnFee = 30M;
-    private const decimal FirstBagFee = 40M;
-    private const decimal ExtraBagFee = 50M;
+  private const decimal CarryOnFee = 30M;
+  private const decimal FirstBagFee = 40M;
+  private const decimal ExtraBagFee = 50M;
 
-    public decimal HolidayTravelFeePercent { get; set; } = 0.1M;
+  public decimal HolidayFeePercent { get; set; } = 0.1M;
 
-    public decimal CalculatePrice(int numChecked, int numCarryOn, int numPassengers, bool isHoliday) {
-        decimal total = 0;
+  public decimal CalculatePrice(int bags, int carryOn, 
+    int passengers, bool isHoliday) {
 
-        if (numCarryOn > 0) {
-            decimal carryOnFee = numCarryOn * CarryOnFee;
-            Console.WriteLine($"Carry-on bag price: {carryOnFee}");
-            total += carryOnFee;
-        }
+    decimal total = 0;
 
-        if (numChecked > 0) {
-            decimal checkedFee = ApplyCheckedBagFee(numChecked, numPassengers);
-            Console.WriteLine($"Checked bag price: {checkedFee}");
-            total += checkedFee;
-        }
-
-        if (isHoliday) {
-            decimal holidayFee = total * HolidayTravelFeePercent;
-            Console.WriteLine($"Holiday Fee: {holidayFee}");
-            total += holidayFee;
-        }
-
-        return total;
+    if (carryOn > 0) {
+      decimal fee = carryOn * CarryOnFee;
+      Console.WriteLine($"Carry-on: {fee}");
+      total += fee;
     }
 
-    private static decimal ApplyCheckedBagFee(int numChecked, int numPassengers) {
-
-        if (numChecked <= numPassengers) {
-            return numChecked * FirstBagFee;
-        }
-
-        decimal firstBagFee = numPassengers * FirstBagFee;
-        int additionalBags = numChecked - numPassengers;
-        decimal additionalBagFee = additionalBags * ExtraBagFee;
-
-        return firstBagFee + additionalBagFee;
+    if (bags > 0) {
+      decimal bagFee = ApplyCheckedBagFee(bags, passengers);
+      Console.WriteLine($"Checked: {bagFee}");
+      total += bagFee;
     }
+
+    if (isHoliday) {
+      decimal holidayFee = total * HolidayFeePercent;
+      Console.WriteLine("Holiday Fee: " + holidayFee);
+
+      total += holidayFee;
+    }
+
+    return total;
+  }
+
+  private static decimal ApplyCheckedBagFee(int bags, 
+    int passengers) {
+    if (bags <= passengers) {
+      decimal firstBagFee = bags * FirstBagFee;
+      return firstBagFee;
+    } else {
+      decimal firstBagFee = passengers * FirstBagFee;
+      decimal extraBagFee = (bags - passengers) * ExtraBagFee;
+      decimal checkedFee = firstBagFee + extraBagFee;
+      return checkedFee;
+    }
+  }
 }
