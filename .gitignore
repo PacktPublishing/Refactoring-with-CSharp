@@ -398,3 +398,9 @@ FodyWeavers.xsd
 *.sln.iml
 
 Chapter3RefactoredCode/.idea/
+
+Chapter04/Ch4RefactoredCode/.idea/
+
+Chapter04/Ch4BeginningCode/.idea/
+
+Chapter04/Ch4BeginningCode/.vscode/
