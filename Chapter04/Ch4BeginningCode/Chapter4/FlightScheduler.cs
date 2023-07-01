@@ -5,26 +5,25 @@ namespace Packt.CloudySkiesAir.Chapter4;
 public class FlightScheduler {
   private readonly List<IFlightInfo> _flights = new();
 
-  public void ScheduleFlight(string id, Airport depart, Airport arrive, DateTime departTime, DateTime arriveTime) {
+  public void ScheduleFlight(string id, Airport depart, Airport arrive, DateTime departTime, DateTime arriveTime, int passengers) {
     PassengerFlightInfo flight = new() {
       Id = id,
       ArrivalLocation = arrive,
       ArrivalTime = arriveTime,
       DepartureLocation = depart,
-      DepartureTime = departTime,
+      DepartureTime = departTime,      
     };
+    flight.Load(passengers);
 
     _flights.Add(flight);
 
-    Console.WriteLine("Scheduled Flight");
-    Console.WriteLine($"{id} {depart.Code}-{arrive.Code}");
+    Console.WriteLine($"Scheduled Flight {flight}");
   }
 
   public void ScheduleFlight(IFlightInfo flight) {
     _flights.Add(flight);
 
-    Console.WriteLine("Scheduled Passenger Flight");
-    Console.WriteLine(flight);
+    Console.WriteLine($"Scheduled Flight {flight}");
   }
 
   public void RemoveFlight(IFlightInfo flight) {
