@@ -1,10 +1,8 @@
 using System;
 using System.Collections.Generic;
-using Packt.CloudySkiesAir.Chapter4.AirTravel;
 using Xunit;
 
-namespace Packt.CloudySkiesAir.Chapter4.Tests
-{
+namespace Packt.CloudySkiesAir.Chapter4.Tests {
     public class FlightSchedulerTests
     {
         private readonly FlightScheduler _flightScheduler;

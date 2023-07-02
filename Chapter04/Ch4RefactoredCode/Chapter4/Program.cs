@@ -1,5 +1,4 @@
-﻿using Packt.CloudySkiesAir.Chapter4.AirTravel;
-using System;
+﻿using System;
 
 namespace Packt.CloudySkiesAir.Chapter4 {
   public class Program {
