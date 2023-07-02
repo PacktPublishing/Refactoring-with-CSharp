@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Packt.CloudySkiesAir.Chapter4.FlightInfoBase">
+    <Position X="15.5" Y="0.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AABCAAAAAAACAAIEQAAAEAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>FlightInfoBase.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Packt.CloudySkiesAir.Chapter4.FreightFlightInfo">
+    <Position X="14.25" Y="4" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AABAEAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>FreightFlightInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Packt.CloudySkiesAir.Chapter4.PassengerFlightInfo">
+    <Position X="16.75" Y="4" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AABAgACAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PassengerFlightInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
