@@ -1,14 +1,7 @@
 ﻿namespace Packt.CloudySkiesAir.Chapter4;
 
-public class PassengerFlightInfo : IFlightInfo {
+public class PassengerFlightInfo : FlightInfoBase, IFlightInfo {
   private int _passengers;
-
-  public string Id { get; set; }
-  public Airport DepartureLocation { get; set; }
-  public Airport ArrivalLocation { get; set; }
-  public DateTime DepartureTime { get; set; }
-  public DateTime ArrivalTime { get; set; }
-  public TimeSpan Duration => DepartureTime - ArrivalTime;
 
   public void Load(int passengers) {
     _passengers = passengers;
@@ -19,6 +12,6 @@ public class PassengerFlightInfo : IFlightInfo {
   }
 
   public override string ToString() {
-    return $"{Id} {DepartureLocation.Code}-{ArrivalLocation.Code} carrying {_passengers} people";
+    return $"{Id} {DepartureLocation}-{ArrivalLocation} carrying {_passengers} people";
   }
 }

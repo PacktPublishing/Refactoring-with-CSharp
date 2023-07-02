@@ -32,42 +32,46 @@ public class FlightScheduler {
     return _flights.AsReadOnly();
   }
 
-  // TODO: Wrap parameters in an object
-  public IEnumerable<IFlightInfo> Search(Airport? departureLocation, Airport? arrivalLocation, DateTime? minDepartureTime, DateTime? maxDepartureTime, DateTime? minArrivalTime, DateTime? maxArrivalTime, TimeSpan? minDuration, TimeSpan? maxDuration) {
-    IEnumerable<IFlightInfo> filteredList = _flights;
+  public IEnumerable<IFlightInfo> Search(
+    Airport? depart, Airport? arrive, 
+    DateTime? minDepartTime, DateTime? maxDepartTime, 
+    DateTime? minArriveTime, DateTime? maxArriveTime, 
+    TimeSpan? minLength, TimeSpan? maxLength) {
 
-    if (departureLocation != null) {
-      filteredList = filteredList.Where(f => f.DepartureLocation.Code == departureLocation.Code && f.DepartureLocation.Country == departureLocation.Country);
+    IEnumerable<IFlightInfo> results = _flights;
+
+    if (depart != null) {
+      results = results.Where(f => f.DepartureLocation == depart);
     }
 
-    if (arrivalLocation != null) {
-      filteredList = filteredList.Where(f => f.ArrivalLocation.Code == arrivalLocation.Code && f.ArrivalLocation.Country == arrivalLocation.Country);
+    if (arrive != null) {
+      results = results.Where(f => f.ArrivalLocation == arrive);
     }
 
-    if (minDepartureTime != null) {
-      filteredList = filteredList.Where(f => f.DepartureTime >= minDepartureTime);
+    if (minDepartTime != null) {
+      results = results.Where(f => f.DepartureTime >= minDepartTime);
     }
 
-    if (maxDepartureTime != null) {
-      filteredList = filteredList.Where(f => f.DepartureTime <= maxDepartureTime);
+    if (maxDepartTime != null) {
+      results = results.Where(f => f.DepartureTime <= maxDepartTime);
     }
 
-    if (minArrivalTime != null) {
-      filteredList = filteredList.Where(f => f.ArrivalTime >= minArrivalTime);
+    if (minArriveTime != null) {
+      results = results.Where(f => f.ArrivalTime >= minArriveTime);
     }
 
-    if (maxArrivalTime != null) {
-      filteredList = filteredList.Where(f => f.ArrivalTime <= maxArrivalTime);
+    if (maxArriveTime != null) {
+      results = results.Where(f => f.ArrivalTime <= maxArriveTime);
     }
 
-    if (minDuration != null) {
-      filteredList = filteredList.Where(f => f.Duration >= minDuration);
+    if (minLength != null) {
+      results = results.Where(f => f.Duration >= minLength);
     }
 
-    if (maxDuration != null) {
-      filteredList = filteredList.Where(f => f.Duration <= maxDuration);
+    if (maxLength != null) {
+      results = results.Where(f => f.Duration <= maxLength);
     }
 
-    return filteredList;
+    return results;
   }
 }
