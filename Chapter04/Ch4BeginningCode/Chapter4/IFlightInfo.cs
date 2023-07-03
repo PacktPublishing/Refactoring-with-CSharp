@@ -31,9 +31,12 @@ public class PassengerFlightInfo : IFlightInfo {
     _passengers = 0;
   }
 
-  public override string ToString() {
-    return $"{Id} {DepartureLocation.Code}-{ArrivalLocation.Code} carrying {_passengers} people";
-  }
+  public string BuildFlightIdentifier() =>
+    $"{Id} {DepartureLocation.Code}-" +
+    $"{ArrivalLocation.Code} carrying " +
+    $"{_passengers} people";
+
+  public override string ToString() => BuildFlightIdentifier();
 }
 
 public class FreightFlightInfo : IFlightInfo {
@@ -48,7 +51,10 @@ public class FreightFlightInfo : IFlightInfo {
   public string CharterCompany { get; set; }
   public string Cargo { get; set; }
 
-  public override string ToString() {
-    return $"{Id} {DepartureLocation.Code}-{ArrivalLocation.Code} carrying {Cargo} for {CharterCompany}";
-  }
+  public string BuildFlightIdentifier() =>
+    $"{Id} {DepartureLocation.Code}-" +
+    $"{ArrivalLocation.Code} carrying " +
+    $"{Cargo} for {CharterCompany}";
+
+  public override string ToString() => BuildFlightIdentifier();
 }
