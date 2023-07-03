@@ -16,7 +16,16 @@ namespace Packt.CloudySkiesAir.Chapter4 {
 
       FlightScheduler scheduler = new();
       scheduler.ScheduleFlight("CS2001", dep, arr, DateTime.Now.AddMinutes(20), DateTime.Now.AddHours(6.5), 680);
-      scheduler.ScheduleFlight("CS2023", arr, dep, DateTime.Now.AddMinutes(-40), DateTime.Now.AddHours(6.1), 930);
+      scheduler.ScheduleFlight("CS2024", arr, dep, DateTime.Now.AddMinutes(-40), DateTime.Now.AddHours(6.1), 930);
+
+      CharterFlightInfo charterFlight = new() {
+        Id="CS2025",
+        Arrival = new AirportEvent(arr, DateTime.Now.AddHours(3)),
+        Departure = new AirportEvent(dep, DateTime.Now),
+      };
+      charterFlight.Cargo.Add(new CargoItem { ItemType = "Passengers", Quantity = 6 });
+      charterFlight.Cargo.Add(new CargoItem { ItemType = "Bags", Quantity = 8 });
+      scheduler.ScheduleFlight(charterFlight);
 
       Console.WriteLine();
       Console.WriteLine("All Flights:");
@@ -33,3 +42,4 @@ namespace Packt.CloudySkiesAir.Chapter4 {
     }
   }
 }
+

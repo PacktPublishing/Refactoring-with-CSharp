@@ -1,4 +1,6 @@
-﻿namespace Packt.CloudySkiesAir.Chapter4;
+﻿using Packt.CloudySkiesAir.Chapter4.Filters;
+
+namespace Packt.CloudySkiesAir.Chapter4;
 
 public class FlightScheduler {
   private readonly List<IFlightInfo> _flights = new();
@@ -6,10 +8,8 @@ public class FlightScheduler {
   public void ScheduleFlight(string id, Airport depart, Airport arrive, DateTime departTime, DateTime arriveTime, int passengers) {
     PassengerFlightInfo flight = new() {
       Id = id,
-      ArrivalLocation = arrive,
-      ArrivalTime = arriveTime,
-      DepartureLocation = depart,
-      DepartureTime = departTime,      
+      Arrival = new AirportEvent(arrive, arriveTime),
+      Departure = new AirportEvent(depart, departTime),
     };
     flight.Load(passengers);
 
@@ -32,46 +32,74 @@ public class FlightScheduler {
     return _flights.AsReadOnly();
   }
 
-  public IEnumerable<IFlightInfo> Search(
-    Airport? depart, Airport? arrive, 
-    DateTime? minDepartTime, DateTime? maxDepartTime, 
-    DateTime? minArriveTime, DateTime? maxArriveTime, 
-    TimeSpan? minLength, TimeSpan? maxLength) {
+public IEnumerable<IFlightInfo> Search(
+  Airport? depart, Airport? arrive,
+  DateTime? minDepartTime, DateTime? maxDepartTime,
+  DateTime? minArriveTime, DateTime? maxArriveTime,
+  TimeSpan? minLength, TimeSpan? maxLength) {
+
+  FlightSearch searchParams = new() {
+    Arrive = arrive,
+    MinArrive = minArriveTime,
+    MaxArrive = maxArriveTime,
+    Depart = depart,
+    MinDepart = minDepartTime,
+    MaxDepart = maxDepartTime,
+    MinLength = minLength,
+    MaxLength = maxLength
+  };
+
+  return Search(searchParams);
+}
+
+  public IEnumerable<IFlightInfo> Search(FlightSearch s) {
 
     IEnumerable<IFlightInfo> results = _flights;
 
-    if (depart != null) {
-      results = results.Where(f => f.DepartureLocation == depart);
+    if (s.Depart != null) {
+      results =
+        results.Where(f => f.Departure.Location == s.Depart);
     }
 
-    if (arrive != null) {
-      results = results.Where(f => f.ArrivalLocation == arrive);
+    if (s.Arrive != null) {
+      results =
+        results.Where(f => f.Arrival.Location == s.Arrive);
     }
 
-    if (minDepartTime != null) {
-      results = results.Where(f => f.DepartureTime >= minDepartTime);
+    if (s.MinDepart != null) {
+      results =
+        results.Where(f => f.Departure.Time >= s.MinDepart);
     }
 
-    if (maxDepartTime != null) {
-      results = results.Where(f => f.DepartureTime <= maxDepartTime);
+    if (s.MaxDepart != null) {
+      results = 
+        results.Where(f => f.Departure.Time <= s.MaxDepart);
     }
 
-    if (minArriveTime != null) {
-      results = results.Where(f => f.ArrivalTime >= minArriveTime);
+    if (s.MinArrive != null) {
+      results = 
+        results.Where(f => f.Arrival.Time >= s.MinArrive);
     }
 
-    if (maxArriveTime != null) {
-      results = results.Where(f => f.ArrivalTime <= maxArriveTime);
+    if (s.MaxArrive != null) {
+      results = 
+        results.Where(f => f.Arrival.Time <= s.MaxArrive);
     }
 
-    if (minLength != null) {
-      results = results.Where(f => f.Duration >= minLength);
+    if (s.MinLength != null) {
+      results = 
+        results.Where(f => f.Duration >= s.MinLength);
     }
 
-    if (maxLength != null) {
-      results = results.Where(f => f.Duration <= maxLength);
+    if (s.MaxLength != null) {
+      results = 
+        results.Where(f => f.Duration <= s.MaxLength);
     }
 
     return results;
   }
+
+  public IEnumerable<IFlightInfo> Search(
+    IEnumerable<FlightFilterBase> rules) => 
+    _flights.Where(f => rules.All(r => r.ShouldInclude(f)));
 }

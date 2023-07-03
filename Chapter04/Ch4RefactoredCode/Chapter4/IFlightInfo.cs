@@ -2,9 +2,7 @@
 
 public interface IFlightInfo {
   string Id { get; }
-  Airport DepartureLocation { get; }
-  Airport ArrivalLocation { get; }
-  DateTime DepartureTime { get; }
-  DateTime ArrivalTime { get; }
+  AirportEvent Arrival { get; set; }
+  AirportEvent Departure { get; set; }
   TimeSpan Duration { get; }
 }

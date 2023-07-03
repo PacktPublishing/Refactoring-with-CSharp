@@ -3,13 +3,18 @@
 public sealed class PassengerFlightInfo : FlightInfoBase {
   private int _passengers;
 
+  public int Passengers { 
+    get => _passengers; 
+    set => _passengers = value; 
+  }
+
   public void Load(int passengers) => 
-    _passengers = passengers;
+    Passengers = passengers;
 
   public void Unload() => 
-    _passengers = 0;
+    Passengers = 0;
 
   public override string BuildFlightIdentifier() =>
     base.BuildFlightIdentifier() +
-    $" carrying {_passengers} people";
+    $" carrying {Passengers} people";
 }

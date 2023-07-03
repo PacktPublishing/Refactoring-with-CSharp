@@ -3,24 +3,69 @@
   <Class Name="Packt.CloudySkiesAir.Chapter4.FlightInfoBase">
     <Position X="15.5" Y="0.75" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>AABCAAAAAAACAAIEQAAAEAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <HashCode>AABCBAAAAAACAAAEAAgAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>FlightInfoBase.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
+  <Class Name="Packt.CloudySkiesAir.Chapter4.PassengerFlightInfo">
+    <Position X="15.5" Y="4" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AABAgACAAgQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PassengerFlightInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Class Name="Packt.CloudySkiesAir.Chapter4.FreightFlightInfo">
-    <Position X="14.25" Y="4" Width="1.75" />
+    <Position X="13.25" Y="4" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AABAEAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAA=</HashCode>
       <FileName>FreightFlightInfo.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Packt.CloudySkiesAir.Chapter4.PassengerFlightInfo">
-    <Position X="16.75" Y="4" Width="1.75" />
+  <Class Name="Packt.CloudySkiesAir.Chapter4.CharterFlightInfo">
+    <Position X="17.75" Y="4" Width="2" />
     <TypeIdentifier>
-      <HashCode>AABAgACAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>PassengerFlightInfo.cs</FileName>
+      <HashCode>AABAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>CharterFlightInfo.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Cargo" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Packt.CloudySkiesAir.Chapter4.FlightDurationFilter">
+    <Position X="23.75" Y="2.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>FlightDurationFilter.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="Packt.CloudySkiesAir.Chapter4.FlightFilterBase">
+    <Position X="26.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>FlightFilter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Packt.CloudySkiesAir.Chapter4.AirportFilter">
+    <Position X="26.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAIAIAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AirportFilter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Packt.CloudySkiesAir.Chapter4.FlightTimeFilter">
+    <Position X="28.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAAAIAAAAAAAAAAAAAAAAAAAAEAABAA=</HashCode>
+      <FileName>FlightTimeFilter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="Packt.CloudySkiesAir.Chapter4.ICargoItem">
+    <Position X="20.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAgAAAAgA=</HashCode>
+      <FileName>ICargoItem.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>
