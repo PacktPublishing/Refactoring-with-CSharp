@@ -1,4 +1,5 @@
 ﻿namespace Packt.CloudySkiesAir.Chapter5;
+
 //---------------------------------------------------------
 public class BoardingGate {
   public string CanPassengerBoard(
