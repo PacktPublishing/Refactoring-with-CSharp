@@ -1,0 +1,10 @@
+namespace Packt.CloudySkiesAir.Chapter5; 
+
+public class Passenger {
+  public string FirstName { get; set; }
+  public string LastName { get; set; }
+  public int BoardingGroup { get; set; }
+  public bool IsMilitary { get; set; }
+  public bool NeedsHelp { get; set; }
+  public string FullName => $"{FirstName} {LastName}";
+}
