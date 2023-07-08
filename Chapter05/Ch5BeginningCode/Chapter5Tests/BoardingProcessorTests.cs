@@ -1,7 +1,7 @@
 using Packt.CloudySkiesAir.Chapter5;
 
 public class BoardingProcessorTests {
-    
+
     [Theory]
     [InlineData(false, 4, false, 4, "Board Now")]
     [InlineData(false, 3, false, 2, "Please Wait")]
@@ -18,13 +18,25 @@ public class BoardingProcessorTests {
         bool needsHelp,
         int currentGroup,
         string expectedResult) {
-            var bp = new BoardingProcessor {
-                Status = BoardingStatus.InProgress,
-                CurrentBoardingGroup = currentGroup,
-            };
 
-            var result = bp.CanPassengerBoard(isMilitary, passengerGroup, needsHelp);
+        // Arrange
+        BoardingProcessor bp = new() {
+            Status = BoardingStatus.Boarding,
+            CurrentBoardingGroup = currentGroup,
+        };
 
-            Assert.Equal(expectedResult, result);
+        Passenger passenger = new() {
+            FirstName = "Test",
+            LastName = "Passenger",
+            IsMilitary = isMilitary,
+            BoardingGroup = passengerGroup,
+            NeedsHelp = needsHelp,
+        };
+
+        // Act
+        string result = bp.CanPassengerBoard(passenger);
+
+        // Assert
+        Assert.Equal(expectedResult, result);
     }
 }

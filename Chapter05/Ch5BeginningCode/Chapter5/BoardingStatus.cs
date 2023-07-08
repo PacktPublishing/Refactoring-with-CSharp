@@ -2,6 +2,6 @@
 
 public enum BoardingStatus {
   NotStarted = 0,
-  InProgress = 1,
+  Boarding = 1,
   PlaneDeparted = 2,
 }

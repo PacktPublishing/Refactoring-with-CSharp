@@ -1,27 +1,27 @@
-using System;
-using Xunit;
+namespace Packt.CloudySkiesAir.Chapter5.Tests; 
 
-namespace Packt.CloudySkiesAir.Chapter5.Tests
+public class PassengerTests
 {
-    public class PassengerTests
-    {
-        [Theory]
-        [InlineData("John", "Doe", "John Doe", 1, false, false)]
-        [InlineData("Jane", "Doe", "Jane Doe", 2, true, false)]
-        [InlineData("Jim", "Smith", "Jim Smith", 3, false, true)]
-        public void Fullname_ShouldReturnFirstNameAndLastName(string firstName, string lastName, 
-            string expectedFullName, int boardingGroup, bool isMilitary, bool needsHelp)
-        {
-            var passenger = new Passenger()
-            {
-                FirstName = firstName,
-                LastName = lastName,
-                BoardingGroup = boardingGroup,
-                IsMilitary = isMilitary,
-                NeedsHelp = needsHelp
-            };
+    [Theory]
+    [InlineData("John", "Doe", "John Doe")]
+    [InlineData("Jane", "Doe", "Jane Doe")]
+    [InlineData("Jim", "Smith", "Jim Smith")]
+    public void Fullname_ShouldReturnFirstNameAndLastName(string first, string last, string expected) {
+        // Arrange
+        var p = Build(first, last);
 
-            Assert.Equal(expectedFullName, passenger.FullName);
-        }
+        // Act
+        string actual = p.FullName;
+
+        // Assert
+        Assert.Equal(expected, actual);
+    }
+
+    private Passenger Build(string firstName, string lastName) {
+        Passenger passenger = new Passenger();
+        passenger.FirstName = firstName;
+        passenger.LastName = lastName;
+
+        return passenger;
     }
 }
