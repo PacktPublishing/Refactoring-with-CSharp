@@ -1,4 +1,4 @@
-namespace Packt.CloudySkiesAir.Chapter3.Tests;
+namespace Packt.CloudySkiesAir.Chapter4.Tests;
 
 public class DirectFlightTests {
     private readonly DirectFlight _directFlight;

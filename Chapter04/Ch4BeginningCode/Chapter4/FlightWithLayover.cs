@@ -1,11 +1,11 @@
-﻿namespace Packt.CloudySkiesAir.Chapter3; 
+﻿namespace Packt.CloudySkiesAir.Chapter4;
 
 public class FlightWithLayover : FlightBase {
     public string LayoverLocation { get; set; }
     public TimeSpan LayoverDuration { get; set; }
     public TimeSpan DepartureDuration { get; set; }
 
-    public FlightWithLayover(string depLoc, string layLoc, DateTime arrTime, TimeSpan layDur, 
+    public FlightWithLayover(string depLoc, string layLoc, DateTime arrTime, TimeSpan layDur,
         DateTime depTime, string arrLoc, TimeSpan depDur)
         : base(depLoc, depTime, arrLoc, arrTime) {
         LayoverLocation = layLoc;
@@ -30,7 +30,7 @@ public class FlightWithLayover : FlightBase {
     }
 
     private string DoTheHourFormat(double numHours) {
-        return (numHours == 1)
+        return numHours == 1
             ? $"{numHours} hour"
             : $"{numHours} hours";
     }

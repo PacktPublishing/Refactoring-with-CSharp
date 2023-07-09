@@ -1,6 +1,4 @@
-﻿using Packt.CloudySkiesAir.Chapter3;
-
-namespace Packt.CloudySkiesAir.Chapter2;
+﻿namespace Packt.CloudySkiesAir.Chapter4;
 
 internal class Program
 {

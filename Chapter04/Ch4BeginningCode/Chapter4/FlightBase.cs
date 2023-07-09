@@ -1,4 +1,4 @@
-namespace Packt.CloudySkiesAir.Chapter3;
+namespace Packt.CloudySkiesAir.Chapter4;
 
 public abstract class FlightBase {
     public string DepartureLocation { get; set; }

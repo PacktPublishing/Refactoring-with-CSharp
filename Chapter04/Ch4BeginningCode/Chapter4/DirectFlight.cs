@@ -1,7 +1,7 @@
-﻿namespace Packt.CloudySkiesAir.Chapter3; 
+﻿namespace Packt.CloudySkiesAir.Chapter4;
 
 public class DirectFlight : FlightBase {
-    public DirectFlight(string departureLocation, DateTime departureTime, string arrivalLocation, DateTime arrivalTime) 
+    public DirectFlight(string departureLocation, DateTime departureTime, string arrivalLocation, DateTime arrivalTime)
         : base(departureLocation, departureTime, arrivalLocation, arrivalTime) {
     }
 

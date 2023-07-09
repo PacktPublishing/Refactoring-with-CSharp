@@ -1,9 +1,8 @@
-namespace Packt.CloudySkiesAir.Chapter3.Tests;
+namespace Packt.CloudySkiesAir.Chapter4.Tests;
 
-public class FlightWithLayoverTests
-{
-    private readonly DateTime _departureTime = new DateTime(2022, 1, 1, 7, 0, 0);
-    private readonly DateTime _arrivalTime = new DateTime(2022, 1, 1, 10, 0, 0);
+public class FlightWithLayoverTests {
+    private readonly DateTime _departureTime = new(2022, 1, 1, 7, 0, 0);
+    private readonly DateTime _arrivalTime = new(2022, 1, 1, 10, 0, 0);
     private readonly string _departureLocation = "Seoul";
     private readonly string _arrivalLocation = "New York";
     private readonly TimeSpan _departureDuration = TimeSpan.FromHours(1);
@@ -12,8 +11,7 @@ public class FlightWithLayoverTests
 
 
     [Fact]
-    public void FlightWithLayoverToString_ReturnsExpectedString()
-    {
+    public void FlightWithLayoverToString_ReturnsExpectedString() {
         // Arrange
         var flightWithLayover = new FlightWithLayover(_departureLocation, _layoverLocation, _arrivalTime, _layoverDuration, _departureTime, _arrivalLocation, _departureDuration);
         var expectedResult = $"Flight from {_departureLocation} to {_arrivalLocation} with a layover at {_layoverLocation} for {_layoverDuration.TotalHours} hours. Overall time: {flightWithLayover.TotalDuration.TotalHours} hours";
@@ -26,8 +24,7 @@ public class FlightWithLayoverTests
     }
 
     [Fact]
-    public void FlightWithLayoverGetFlightDetails_ReturnsExpectedString()
-    {
+    public void FlightWithLayoverGetFlightDetails_ReturnsExpectedString() {
         // Arrange
         var flightWithLayover = new FlightWithLayover(_departureLocation, _layoverLocation, _arrivalTime, _layoverDuration, _departureTime, _arrivalLocation, _departureDuration);
         var expectedResult = $"Flight from {_departureLocation} to {_arrivalLocation} with a layover at {_layoverLocation} for {_layoverDuration.TotalHours} hours. Overall time: {flightWithLayover.TotalDuration.TotalHours} hours";
@@ -40,8 +37,7 @@ public class FlightWithLayoverTests
     }
 
     [Fact]
-    public void FlightWithLayoverTotalDuration_ReturnsExpectedTimeSpan()
-    {
+    public void FlightWithLayoverTotalDuration_ReturnsExpectedTimeSpan() {
         // Arrange
         var flightWithLayover = new FlightWithLayover(_departureLocation, _layoverLocation, _arrivalTime, _layoverDuration, _departureTime, _arrivalLocation, _departureDuration);
         var expectedTotalDuration = _departureDuration + _layoverDuration + (_arrivalTime - _departureTime);
