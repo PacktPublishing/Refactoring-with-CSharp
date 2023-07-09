@@ -1,28 +1,20 @@
-﻿using Packt.CloudySkiesAir.Chapter3;
+﻿namespace Packt.CloudySkiesAir.Chapter3; 
 
-namespace Packt.CloudySkiesAir.Chapter2;
+public class Program {
+  public static void Main() {
+    PassengerGenerator generator = new();
+    IEnumerable<Passenger> passengers = generator.GeneratePassengers(18).OrderBy(p => p.BoardingGroup);
 
-internal class Program
-{
-    public static void Main() {
-        Console.WriteLine("Do you want to do a flight with a layover or a direct flight? (l/d)");
-        string response = Console.ReadLine()!;
+    BoardingProcessor boardingProcessor = new();
+    boardingProcessor.CurrentBoardingGroup = 4;
+    boardingProcessor.Status = BoardingStatus.Boarding;
 
-        FlightBase? selectedFlight = null;
-        DateTime departureTime = DateTime.Now;
-        switch (response.ToLowerInvariant()) {
-            case "l":
-                selectedFlight = new FlightWithLayover("CMH", departureTime, TimeSpan.FromHours(2.75), "MCI", TimeSpan.FromHours(3), "DFW", departureTime.AddHours(1.5));
-                break;
-            case "d":
-                selectedFlight = new DirectFlight("CMH", departureTime, "MCI", departureTime.AddHours(3));
-                break;
-        }
+    Random random = new();
 
-        if (selectedFlight != null) {
-            Console.WriteLine(selectedFlight.ToString());
-        } else {
-            Console.WriteLine("Invalid selection");
-        }
+    foreach (var passenger in passengers.Where(p => boardingProcessor.CanPassengerBoard(p).StartsWith("Board"))) {
+      passenger.HasBoarded = random.NextDouble() < 0.65;
     }
+
+    boardingProcessor.DisplayBoardingStatus(passengers.ToList());
+  }
 }
