@@ -14,10 +14,13 @@ public class FlightTracker {
 
         _flights.Add(flight);
 
-        Console.Write($"New Flight {id} to {dest} ");
-        Console.WriteLine($"at {Format(depart)} from gate {gate}.");
-
         return flight;
+    }
+
+    public void DisplayFlights() {
+        foreach (Flight f in _flights) {
+            Console.WriteLine($"{f.Id,-9} {f.Destination, -5} {Format(f.DepartureTime), -35} {f.Gate}");
+        }
     }
 
     public Flight? DelayFlight(string fId, DateTime newTime) {
