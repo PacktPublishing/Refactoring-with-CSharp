@@ -46,12 +46,12 @@ public class FlightTracker {
         return flight;
     }
 
-    public Flight? MarkFlightDeparted(string id, DateTime time) {
+    public Flight? MarkFlightDeparted(string id, DateTime t) {
         Flight? flight = FindFlightById(id);
         if (flight != null) {
-            flight.DepartureTime = time;
+            flight.DepartureTime = t;
             flight.Status = FlightStatus.Departed;
-            Console.WriteLine($"{id} departed at {Format(time)}.");
+            Console.WriteLine($"{id} departed at {Format(t)}.");
         } else {
             Console.WriteLine($"{id} could not be found");
         }
