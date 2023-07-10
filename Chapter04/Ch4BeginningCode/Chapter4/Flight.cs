@@ -7,4 +7,8 @@ public class Flight {
     public DateTime ArrivalTime { get; set; }
     public string Gate { get; set; }
     public FlightStatus Status { get; set; }
+
+    public override string ToString() {
+        return $"{Id} to {Destination} at {DepartureTime}";
+    }
 }

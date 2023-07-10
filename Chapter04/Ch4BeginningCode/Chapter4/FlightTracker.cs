@@ -11,15 +11,13 @@ public class FlightTracker {
             Gate = gate,
             Status = FlightStatus.Inbound
         };
-
         _flights.Add(flight);
-
         return flight;
     }
 
     public void DisplayFlights() {
         foreach (Flight f in _flights) {
-            Console.WriteLine($"{f.Id,-9} {f.Destination, -5} {Format(f.DepartureTime), -35} {f.Gate}");
+            Console.WriteLine($"{f.Id,-9} {f.Destination, -5} {Format(f.DepartureTime), -21} {f.Gate, -5} {f.Status}");
         }
     }
 
@@ -38,7 +36,6 @@ public class FlightTracker {
 
     public Flight? MarkFlightArrived(DateTime time, string id) {
         Flight? flight = FindFlightById(id);
-
         if (flight != null) {
             flight.ArrivalTime = time;
             flight.Status = FlightStatus.OnTime;
@@ -51,7 +48,6 @@ public class FlightTracker {
 
     public Flight? MarkFlightDeparted(string id, DateTime time) {
         Flight? flight = FindFlightById(id);
-
         if (flight != null) {
             flight.DepartureTime = time;
             flight.Status = FlightStatus.Departed;
@@ -67,6 +63,6 @@ public class FlightTracker {
     }
 
     private string Format(DateTime time) {
-        return time.ToString("f");
+        return time.ToString("ddd MMM dd HH:mm tt");
     }
 }
