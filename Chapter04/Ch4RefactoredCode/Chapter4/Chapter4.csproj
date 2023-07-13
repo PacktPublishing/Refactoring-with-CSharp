@@ -5,15 +5,15 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <RootNamespace>Packt.CloudySkiesAir.Chapter3</RootNamespace>
+    <RootNamespace>Packt.CloudySkiesAir.Chapter4</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
-    <EditorConfigFiles Remove="C:\Dev\repos\RefactoringWithCSharp\Chapter3BeginningCode\Chapter3\.editorconfig" />
+    <EditorConfigFiles Remove="..\.editorconfig" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="C:\Dev\repos\RefactoringWithCSharp\Chapter3BeginningCode\Chapter3\.editorconfig" />
+    <None Include="..\.editorconfig" />
   </ItemGroup>
 
 </Project>

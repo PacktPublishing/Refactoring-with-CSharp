@@ -1,28 +1,40 @@
-﻿using Packt.CloudySkiesAir.Chapter3;
-
-namespace Packt.CloudySkiesAir.Chapter2;
+﻿namespace Packt.CloudySkiesAir.Chapter4;
 
 internal class Program
 {
     public static void Main() {
-        Console.WriteLine("Do you want to do a flight with a layover or a direct flight? (l/d)");
-        string response = Console.ReadLine()!;
+        FlightTracker flightTracker = new();
 
-        FlightBase? selectedFlight = null;
-        DateTime departureTime = DateTime.Now;
-        switch (response.ToLowerInvariant()) {
-            case "l":
-                selectedFlight = new FlightWithLayover("CMH", departureTime, TimeSpan.FromHours(2.75), "MCI", TimeSpan.FromHours(3), "DFW", departureTime.AddHours(1.5));
-                break;
-            case "d":
-                selectedFlight = new DirectFlight("CMH", departureTime, "MCI", departureTime.AddHours(3));
-                break;
+        Random rand = new();
+        string[] destinations = { "CMH", "ATL", "MCI", "CLT", "SAN", "ORD", "CHS", "PNS" };
+        string[] gates = { "A01", "A02", "A03", "A04", "C01", "C02", "C03", "C04" };
+        int nextId = 2024;
+
+        DateTime nextFlightTime = DateTime.Now;
+        for (int i = 0; i < 15; i++) {
+            nextFlightTime = nextFlightTime.AddMinutes(rand.Next(1, 25));
+
+            AddRandomFlight(flightTracker, rand, destinations, gates, nextId, nextFlightTime);
+
+            nextId += rand.Next(1, 7);
         }
 
-        if (selectedFlight != null) {
-            Console.WriteLine(selectedFlight.ToString());
-        } else {
-            Console.WriteLine("Invalid selection");
-        }
+        Console.WriteLine();
+        Console.WriteLine("FLIGHT    DEST  DEPARTURE             GATE  STATUS");
+        Console.WriteLine();
+        flightTracker.DisplayFlights();
+    }
+
+    private static void AddRandomFlight(FlightTracker flightTracker, Random rand, string[] destinations, string[] gates, int nextId, DateTime nextFlightTime) {
+        string dest = destinations[rand.Next(destinations.Length)];
+
+        Flight flight = flightTracker.ScheduleNewFlight($"CSA{nextId}", dest, nextFlightTime);
+
+        _ = rand.Next(8) switch {
+            0 => flight.Status = FlightStatus.Inbound,
+            1 => flight.Status = FlightStatus.Delayed,
+            2 => flight.Status = FlightStatus.Cancelled,
+            _ => flight.Status = FlightStatus.OnTime
+        };
     }
 }
