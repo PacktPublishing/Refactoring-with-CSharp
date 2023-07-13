@@ -59,7 +59,7 @@ public class FlightTracker {
     }
 
     public Flight? FindFlightById(string id) {
-        return _flights.Find(f => f.Id == id);
+        return _flights.FirstOrDefault(f => f.Id == id);
     }
 
     private string Format(DateTime time) {

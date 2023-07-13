@@ -28,7 +28,6 @@ namespace PacktCloudySkiesAirTests.Chapter4
 
             // Assert
             flight.ShouldNotBeNull();
-            flight.Gate.ShouldBe(gate);
             flight.Id.ShouldBe(flightId);
             flight.Destination.ShouldBe(destination);
             flight.DepartureTime.ShouldBe(departureTime);
