@@ -40,8 +40,6 @@ public class PassengerFlightInfo : IFlightInfo {
 }
 
 public class FreightFlightInfo : IFlightInfo {
-  // This gets a constructor
-
   public string Id { get; set; }
   public Airport DepartureLocation { get; set; }
   public Airport ArrivalLocation { get; set; }
