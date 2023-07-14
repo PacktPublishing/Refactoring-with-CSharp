@@ -13,9 +13,6 @@ public interface IFlightInfo {
 
 public class PassengerFlightInfo : IFlightInfo {
   private int _passengers;
-
-  // This gets a constructor
-
   public string Id { get; set; }
   public Airport DepartureLocation { get; set; }
   public Airport ArrivalLocation { get; set; }
@@ -23,13 +20,11 @@ public class PassengerFlightInfo : IFlightInfo {
   public DateTime ArrivalTime { get; set; }
   public TimeSpan Duration => DepartureTime - ArrivalTime;
 
-  public void Load(int passengers) {
+  public void Load(int passengers) => 
     _passengers = passengers;
-  }
 
-  public void Unload() {
+  public void Unload() => 
     _passengers = 0;
-  }
 
   public string BuildFlightIdentifier() =>
     $"{Id} {DepartureLocation.Code}-" +
