@@ -1,6 +1,6 @@
-﻿using Packt.CloudySkiesAir.Chapter4.AirTravel;
+﻿using Packt.CloudySkiesAir.Chapter5.AirTravel;
 
-namespace Packt.CloudySkiesAir.Chapter4;
+namespace Packt.CloudySkiesAir.Chapter5;
 
 public class FlightScheduler {
   private readonly List<IFlightInfo> _flights = new();
