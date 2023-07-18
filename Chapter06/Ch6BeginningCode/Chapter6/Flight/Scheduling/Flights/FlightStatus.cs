@@ -1,4 +1,4 @@
-﻿namespace Packt.CloudySkiesAir.Chapter6.Flight.Tracking;
+﻿namespace Packt.CloudySkiesAir.Chapter6.Flight.Scheduling.Flights;
 
 public enum FlightStatus {
   Inbound,

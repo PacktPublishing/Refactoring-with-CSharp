@@ -1,4 +1,4 @@
-﻿namespace Packt.CloudySkiesAir.Chapter6.Flight.Scheduling;
+﻿namespace Packt.CloudySkiesAir.Chapter6.Flight.Scheduling.Flights;
 
 public class CargoItem : ICargoItem {
   public string ItemType { get; set; }

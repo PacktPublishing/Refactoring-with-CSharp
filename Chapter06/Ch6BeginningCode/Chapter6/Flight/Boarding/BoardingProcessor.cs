@@ -16,7 +16,7 @@ public class BoardingProcessor {
     foreach (Passenger passenger in passengers) {
       string statusMessage = passenger.HasBoarded
         ? "Onboard"
-        : CanPassengerBoard(passenger);
+        : BuildMessage(passenger);
 
       Console.WriteLine($"{passenger.FullName,-23} Group {passenger.BoardingGroup}: {statusMessage}");
     }
@@ -48,7 +48,7 @@ public class BoardingProcessor {
     Console.WriteLine();
   }
 
-  public string CanPassengerBoard(Passenger passenger) {
+  public string BuildMessage(Passenger passenger) {
     bool isMilitary = passenger.IsMilitary;
     bool needsHelp = passenger.NeedsHelp;
     int group = passenger.BoardingGroup;

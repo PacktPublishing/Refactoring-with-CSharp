@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace Packt.CloudySkiesAir.Chapter6.Flight.Scheduling;
+namespace Packt.CloudySkiesAir.Chapter6.Flight.Scheduling.Flights;
 
 public class CharterFlightInfo : FlightInfoBase {
   public List<ICargoItem> Cargo { get; } = new();
