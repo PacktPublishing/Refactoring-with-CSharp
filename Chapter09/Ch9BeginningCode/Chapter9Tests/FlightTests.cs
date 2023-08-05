@@ -13,7 +13,7 @@ public class FlightTests {
         // Act
         string message = flight.BuildMessage(id, status);
 
-        // Assert
-        Assert.Equal("Flight CSA1234 is On Time", message);
+        // Assert        
+        message.ShouldBe("Flight CSA1234 is On Time");
     }
 }

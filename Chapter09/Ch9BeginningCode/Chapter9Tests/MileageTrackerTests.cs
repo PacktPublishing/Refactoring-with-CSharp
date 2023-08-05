@@ -12,7 +12,7 @@ public class MileageTrackerTests {
         MileageTracker tracker = new();
 
         // Assert
-        Assert.Equal(expectedMiles, tracker.Balance);
+        tracker.Balance.ShouldBe(expectedMiles);
     }
 
     [Fact]
@@ -24,7 +24,7 @@ public class MileageTrackerTests {
         tracker.AddMiles(50);
 
         // Assert
-        Assert.Equal(150, tracker.Balance);
+        tracker.Balance.ShouldBe(150);
     }
 
     [Fact]
@@ -37,7 +37,7 @@ public class MileageTrackerTests {
         tracker.RedeemMiles(250);
 
         // Assert
-        Assert.Equal(750, tracker.Balance);
+        tracker.Balance.ShouldBe(750);
     }
 
     [Fact]
@@ -50,7 +50,7 @@ public class MileageTrackerTests {
         tracker.RedeemMiles(2500);
 
         // Assert
-        Assert.Equal(startingBalance, tracker.Balance);
+        tracker.Balance.ShouldBe(startingBalance);
     }
 
     [Theory]
@@ -65,6 +65,6 @@ public class MileageTrackerTests {
         tracker.RedeemMiles(redeemAmount);
 
         // Assert
-        Assert.Equal(expectedBalance, tracker.Balance);
+        tracker.Balance.ShouldBe(expectedBalance);
     }
 }

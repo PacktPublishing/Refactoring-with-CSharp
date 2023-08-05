@@ -32,9 +32,9 @@ public class FlightSchedulerTests {
 
         // Assert
         IEnumerable<IFlightInfo> result = scheduler.GetAllFlights();
-        Assert.NotNull(result);
-        Assert.Equal(1, result.Count());
-        Assert.Contains(flight, result);
+        result.ShouldNotBeNull();
+        result.Count().ShouldBe(1);
+        result.ShouldContain(flight);
     }
 
     private PassengerFlightInfo CreateFlight(string id)
@@ -63,7 +63,7 @@ public class FlightSchedulerTests {
 
         // Assert
         IEnumerable<IFlightInfo> result = scheduler.GetAllFlights();
-        Assert.NotNull(result);
-        Assert.DoesNotContain(flight, result);
+        result.ShouldNotBeNull();
+        result.ShouldNotContain(flight);
     }
 }

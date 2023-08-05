@@ -16,7 +16,7 @@ public class BaggageCalculatorTests {
         decimal result = calculator.CalculatePrice(checkedBags, carryOnBags, passengers, isHoliday);
 
         // Assert
-        Assert.Equal(60m, result);
+        result.ShouldBe(60m);
     }
 
     [Fact]
@@ -32,7 +32,7 @@ public class BaggageCalculatorTests {
         decimal result = calculator.CalculatePrice(checkedBags, carryOnBags, passengers, isHoliday);
 
         // Assert
-        Assert.Equal(40m, result);
+        result.ShouldBe(40m);
     }
 
 
@@ -49,7 +49,7 @@ public class BaggageCalculatorTests {
         decimal result = calculator.CalculatePrice(checkedBags, carryOnBags, passengers, isHoliday);
 
         // Assert
-        Assert.Equal(expected, result);
+        result.ShouldBe(expected);
     }
 
 }
