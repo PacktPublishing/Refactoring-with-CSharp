@@ -1,6 +1,7 @@
 using Packt.CloudySkiesAir.Chapter9.Flight.Baggage;
+using FluentAssertions;
 
-namespace Chapter9Tests; 
+namespace Chapter9Tests;
 
 public class BaggageCalculatorTests {
     [Fact]
@@ -16,7 +17,7 @@ public class BaggageCalculatorTests {
         decimal result = calculator.CalculatePrice(checkedBags, carryOnBags, passengers, isHoliday);
 
         // Assert
-        result.ShouldBe(60m);
+        result.Should().Be(60m);
     }
 
     [Fact]
@@ -32,7 +33,9 @@ public class BaggageCalculatorTests {
         decimal result = calculator.CalculatePrice(checkedBags, carryOnBags, passengers, isHoliday);
 
         // Assert
-        result.ShouldBe(40m);
+        result.Should().NotBe(0);
+        result.Should().BeGreaterThan(20);
+        result.Should().Be(40);
     }
 
 
@@ -49,7 +52,7 @@ public class BaggageCalculatorTests {
         decimal result = calculator.CalculatePrice(checkedBags, carryOnBags, passengers, isHoliday);
 
         // Assert
-        result.ShouldBe(expected);
+        result.Should().Be(expected);
     }
 
 }
