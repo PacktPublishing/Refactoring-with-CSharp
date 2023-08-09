@@ -1,31 +1,42 @@
-﻿using Packt.CloudySkiesAir.Chapter9.Flight.Scheduling;
+﻿using Bogus;
+using Packt.CloudySkiesAir.Chapter9.Flight.Scheduling;
 using Packt.CloudySkiesAir.Chapter9.Flight.Scheduling.Flights;
+using Shouldly;
 
 namespace Chapter9Tests;
 
 public class FlightSchedulerTests {
 
-    private readonly Airport _airport1;
-    private readonly Airport _airport2;
+    private readonly Faker<Airport> _airportFaker;
+    private readonly Faker<PassengerFlightInfo> _flightFaker;
 
     public FlightSchedulerTests() {
-        _airport1 = new() {
-            Code = "DNA",
-            Country = "United States",
-            Name = "Dotnet Airport"
-        };
-        _airport2 = new() {
-            Code = "CSI",
-            Country = "United Kingdom",
-            Name = "C# International Airport"
-        };
+        _airportFaker = new Faker<Airport>()
+            .RuleFor(a => a.Country, f => f.Address.Country())
+            .RuleFor(a => a.Name, f => f.Address.City())
+            .RuleFor(a => a.Code, f => f.Random.String2(3));
+
+        _flightFaker = new Faker<PassengerFlightInfo>()
+            .RuleFor(p => p.Id, f => f.Random.AlphaNumeric(length: 6))
+            .RuleForType(typeof(int), f => f.Random.Number(min: 16, max: 480))
+            .RuleForType(typeof(AirportEvent), f => new AirportEvent() {
+                Location = _airportFaker.Generate(),
+                Time = f.Date.Future()
+            })
+            .RuleForType(typeof(FlightStatus), f => f.PickRandom<FlightStatus>());
+            
+        //_airport1 = new() {
+        //    Code = _bogus.Random.String2(3).ToUpper(),
+        //    Country = _bogus.Address.Country(),
+        //    Name = _bogus.Company.CompanyName(),
+        //};
     }
 
     [Fact]
     public void ScheduleFlightShouldAddFlight() {
         // Arrange
         FlightScheduler scheduler = new();
-        PassengerFlightInfo flight = CreateFlight("CS2024");
+        PassengerFlightInfo flight = _flightFaker.Generate();
 
         // Act
         scheduler.ScheduleFlight(flight);
@@ -37,25 +48,23 @@ public class FlightSchedulerTests {
         result.ShouldContain(flight);
     }
 
-    private PassengerFlightInfo CreateFlight(string id)
-      => new() {
-          Id = id,
-          Status = FlightStatus.OnTime,
-          Departure = new AirportEvent() {
-              Location = _airport1,
-              Time = DateTime.Now
-          },
-          Arrival = new AirportEvent() {
-              Location = _airport2,
-              Time = DateTime.Now.AddHours(2)
-          }
-      };
+
+    [Fact]
+    public void ScheduleFlightShouldNotBeSlow() {
+        // Arrange
+        FlightScheduler scheduler = new();
+        PassengerFlightInfo flight = _flightFaker.Generate();
+
+        // Act / Assert
+        TimeSpan maxTime = TimeSpan.FromMilliseconds(100);
+        Should.CompleteIn(() => scheduler.ScheduleFlight(flight), maxTime);
+    }
 
     [Fact]
     public void RemoveShouldRemoveFlight() {
         // Arrange
         FlightScheduler scheduler = new();
-        PassengerFlightInfo flight = CreateFlight("CS2024");
+        PassengerFlightInfo flight = _flightFaker.Generate();
         scheduler.ScheduleFlight(flight);
 
         // Act
@@ -66,4 +75,5 @@ public class FlightSchedulerTests {
         result.ShouldNotBeNull();
         result.ShouldNotContain(flight);
     }
+
 }

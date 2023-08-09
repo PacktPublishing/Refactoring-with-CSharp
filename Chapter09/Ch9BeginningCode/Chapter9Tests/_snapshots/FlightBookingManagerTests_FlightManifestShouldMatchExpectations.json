@@ -1,0 +1,50 @@
+{
+  "Passengers": [
+    {
+      "FirstName": "Dot",
+      "LastName": "Netta",
+      "BoardingGroup": 0,
+      "IsMilitary": false,
+      "NeedsHelp": false,
+      "HasBoarded": false,
+      "RewardMiles": 0,
+      "FlightsThisYear": 0,
+      "Email": null,
+      "RewardsId": null,
+      "MailingCity": null,
+      "MailingCountry": null,
+      "MailingStateOrProvince": null,
+      "MailingPostalCode": null,
+      "FullName": "Dot Netta"
+    },
+    {
+      "FirstName": "See",
+      "LastName": "Sharp",
+      "BoardingGroup": 0,
+      "IsMilitary": false,
+      "NeedsHelp": false,
+      "HasBoarded": false,
+      "RewardMiles": 0,
+      "FlightsThisYear": 0,
+      "Email": null,
+      "RewardsId": null,
+      "MailingCity": null,
+      "MailingCountry": null,
+      "MailingStateOrProvince": null,
+      "MailingPostalCode": null,
+      "FullName": "See Sharp"
+    }
+  ],
+  "BookedSeats": null,
+  "PassengerCount": 2,
+  "Arrival": {
+    "Country": null,
+    "Code": null,
+    "Name": "Laos"
+  },
+  "Departure": {
+    "Country": null,
+    "Code": null,
+    "Name": "Buenos Ares"
+  }
+}

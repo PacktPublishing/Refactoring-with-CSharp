@@ -2,7 +2,7 @@
 
 namespace Packt.CloudySkiesAir.Chapter9.Flight.Scheduling.Flights;
 
-public class CharterFlightInfo : FlightInfoBase {
+public record CharterFlightInfo : FlightInfoBase {
   public List<ICargoItem> Cargo { get; } = new();
 
   public override string BuildFlightIdentifier() {

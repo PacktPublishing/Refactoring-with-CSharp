@@ -1,6 +1,6 @@
 ﻿namespace Packt.CloudySkiesAir.Chapter9.Flight.Scheduling.Flights;
 
-public class FreightFlightInfo : FlightInfoBase {
+public record FreightFlightInfo : FlightInfoBase {
   public string CharterCompany { get; set; }
   public string Cargo { get; set; }
 
