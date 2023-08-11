@@ -13,7 +13,7 @@ public class Passenger {
   public string RewardsId { get; set; }
   public string MailingCity { get; set; }
   public string MailingCountry { get; set; }
-  public string MailingStateOrProvince { get; set; }
+  public string MailingState { get; set; }
   public string MailingPostalCode { get; set; }
   public string FullName => $"{FirstName} {LastName}";
 

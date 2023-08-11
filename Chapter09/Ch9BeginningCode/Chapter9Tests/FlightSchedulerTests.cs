@@ -2,6 +2,7 @@
 using Packt.CloudySkiesAir.Chapter9.Flight.Scheduling;
 using Packt.CloudySkiesAir.Chapter9.Flight.Scheduling.Flights;
 using Shouldly;
+using System.Diagnostics;
 
 namespace Chapter9Tests;
 
@@ -24,7 +25,7 @@ public class FlightSchedulerTests {
                 Time = f.Date.Future()
             })
             .RuleForType(typeof(FlightStatus), f => f.PickRandom<FlightStatus>());
-            
+
         //_airport1 = new() {
         //    Code = _bogus.Random.String2(3).ToUpper(),
         //    Country = _bogus.Address.Country(),
@@ -48,6 +49,21 @@ public class FlightSchedulerTests {
         result.ShouldContain(flight);
     }
 
+    [Fact]
+    public void ScheduleFlightShouldAddFlightNoShouldly() {
+        // Arrange
+        FlightScheduler scheduler = new();
+        PassengerFlightInfo flight = _flightFaker.Generate();
+
+        // Act
+        scheduler.ScheduleFlight(flight);
+
+        // Assert
+        var result = scheduler.GetAllFlights();
+        Assert.NotNull(result);
+        Assert.Equal(1, result.Count());
+        Assert.Contains(flight, result);
+    }
 
     [Fact]
     public void ScheduleFlightShouldNotBeSlow() {
@@ -55,9 +71,31 @@ public class FlightSchedulerTests {
         FlightScheduler scheduler = new();
         PassengerFlightInfo flight = _flightFaker.Generate();
 
-        // Act / Assert
+        // Act
+        Action testAction = () => scheduler.ScheduleFlight(flight);
+
+        // Assert
         TimeSpan maxTime = TimeSpan.FromMilliseconds(100);
-        Should.CompleteIn(() => scheduler.ScheduleFlight(flight), maxTime);
+        Should.CompleteIn(testAction, maxTime);
+    }
+
+
+    [Fact]
+    public void ScheduleFlightShouldNotBeSlowStopwatch() {
+        // Arrange
+        FlightScheduler scheduler = new();
+        PassengerFlightInfo flight = _flightFaker.Generate();
+        int maxTime = 100;
+        Stopwatch stopwatch = new();
+
+        // Act
+        stopwatch.Start();
+        scheduler.ScheduleFlight(flight);
+        stopwatch.Stop();
+        long milliSeconds = stopwatch.ElapsedMilliseconds;
+
+        // Assert
+        milliSeconds.ShouldBeLessThanOrEqualTo(maxTime);
     }
 
     [Fact]

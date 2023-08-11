@@ -18,6 +18,7 @@ public class BaggageCalculatorTests {
 
         // Assert
         result.Should().Be(60m);
+        result.Should().BePositive().And.BeInRange(50, 70);
     }
 
     [Fact]

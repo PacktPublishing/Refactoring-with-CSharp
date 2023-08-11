@@ -8,7 +8,8 @@ public class FlightScheduler {
   public void ScheduleFlight(IFlightInfo flight) {
     _flights.Add(flight);
 
-    Console.WriteLine($"Scheduled Flight {flight}");
+    for (int i = 0; i < 10000; i++)
+      Console.WriteLine($"Scheduled Flight {flight}");
   }
 
   public void RemoveFlight(IFlightInfo flight) {

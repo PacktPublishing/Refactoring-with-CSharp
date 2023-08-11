@@ -6,6 +6,14 @@ public class BoardingProcessor {
   public BoardingStatus Status { get; set; }
   private int[] _priorityLaneGroups = new[] { 1, 2 };
 
+  public BoardingProcessor() {
+  }
+
+  public BoardingProcessor(BoardingStatus status, int group) {
+    CurrentBoardingGroup = group;
+    Status = status;
+  }
+
   public void DisplayBoardingStatus(List<Passenger> passengers, bool? hasBoarded = null) {
     passengers = passengers.Where(p => !hasBoarded.HasValue ||
                                        p.HasBoarded == hasBoarded)
