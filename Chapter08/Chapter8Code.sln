@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chapter8", "Chapter8\Chapte
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{BFC66D77-B08B-4162-B06D-77BF4DD81499}"
 	ProjectSection(SolutionItems) = preProject
-		DatabaseCreate.sql = DatabaseCreate.sql
+		CreateDatabase.sql = CreateDatabase.sql
 	EndProjectSection
 EndProject
 Global
