@@ -5,6 +5,11 @@ VisualStudioVersion = 17.6.33723.286
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chapter8", "Chapter8\Chapter8.csproj", "{2237D1B0-9A20-4854-A159-1230BB4DF1C8}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{BFC66D77-B08B-4162-B06D-77BF4DD81499}"
+	ProjectSection(SolutionItems) = preProject
+		DatabaseCreate.sql = DatabaseCreate.sql
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
