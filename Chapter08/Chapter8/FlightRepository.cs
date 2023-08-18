@@ -14,16 +14,15 @@ public class FlightRepository : IDisposable {
     OpenConnectionIfNeeded();
 
     // Query the database
-    using SqlCommand command = new("SELECT f.Id, f.Departure, f.Arrival, f.Miles FROM Flights f WHERE f.Id = @id", _conn);
+    const string sql = "SELECT f.Id, f.Departure, f.Arrival, f.Miles FROM Flights f WHERE f.Id = @id";
+    using SqlCommand command = new(sql, _conn);
     command.Parameters.AddWithValue("@id", id);
 
     using SqlDataReader reader = command.ExecuteReader();
 
     // return the Flight
     if (reader.Read()) {
-      FlightInfo flight = GetFlightFromDataReader(reader);
-
-      return flight;
+      return GetFlightFromDataReader(reader);
     }
 
     throw new FlightNotFoundException(id);
@@ -34,15 +33,14 @@ public class FlightRepository : IDisposable {
     OpenConnectionIfNeeded();
 
     // Query the database
-    using SqlCommand command = new("SELECT f.Id, f.Departure, f.Arrival, f.Miles FROM Flights f", _conn);
+    const string sql = "SELECT f.Id, f.Departure, f.Arrival, f.Miles FROM Flights f";
+    using SqlCommand command = new(sql, _conn);
     using SqlDataReader reader = command.ExecuteReader();
 
-    // return the list
+    // Return the list
     List<FlightInfo> flights = new();
     while (reader.Read()) {
-      FlightInfo flight = GetFlightFromDataReader(reader);
-
-      flights.Add(flight);
+      flights.Add(GetFlightFromDataReader(reader));
     }
 
     return flights;

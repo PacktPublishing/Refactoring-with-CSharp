@@ -18,3 +18,4 @@ public class ItineraryManager {
     MilesAccumulated += miles;
 
 }
+

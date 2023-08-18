@@ -2,17 +2,10 @@
 using GitHub;
 using Moq;
 using NSubstitute;
-using NSubstitute.Core.Arguments;
 using Packt.CloudySkiesAir.Chapter9.Flight.Boarding;
 using Packt.CloudySkiesAir.Chapter9.Flight.Scheduling;
-using Shouldly;
 using Snapper;
 using Snapper.Attributes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Chapter9Tests;
 
@@ -97,45 +90,45 @@ public class FlightBookingManagerTests {
         };
     }
 
-[Fact]
-[UpdateSnapshots]
-public void FlightManifestShouldMatchExpectations() {
-    // Arrange
-    FlightInfo flight = GenerateEmptyFlight("Alta", "Laos");
-    Passenger p1 = new("Dot", "Netta");
-    Passenger p2 = new("See", "Sharp");
-    flight.AssignSeat(p1, "1A");
-    flight.AssignSeat(p2, "1B");
-    LegacyManifestGenerator generator = new();  
+    [Fact]
+    [UpdateSnapshots]
+    public void FlightManifestShouldMatchExpectations() {
+        // Arrange
+        FlightInfo flight = GenerateEmptyFlight("Alta", "Laos");
+        Passenger p1 = new("Dot", "Netta");
+        Passenger p2 = new("See", "Sharp");
+        flight.AssignSeat(p1, "1A");
+        flight.AssignSeat(p2, "1B");
+        LegacyManifestGenerator generator = new();
 
-    // Act
-    FlightManifest manifest = generator.Build(flight);
+        // Act
+        FlightManifest manifest = generator.Build(flight);
 
-    // Assert
-    manifest.ShouldMatchSnapshot();
-}
+        // Assert
+        manifest.ShouldMatchSnapshot();
+    }
 
-[Fact]
-public void FlightManifestExperimentWithScientist() {
-    FlightInfo flight = GenerateEmptyFlight("Buenos Ares", "Laos");
-    Passenger p1 = new("Dot", "Netta");
-    Passenger p2 = new("See", "Sharp");
+    [Fact]
+    public void FlightManifestExperimentWithScientist() {
+        FlightInfo flight = GenerateEmptyFlight("Buenos Ares", "Laos");
+        Passenger p1 = new("Dot", "Netta");
+        Passenger p2 = new("See", "Sharp");
 
-    Scientist.Science<FlightManifest>("build flight manifest", exp => {
-        exp.Use(() => {
-            LegacyManifestGenerator generator = new();
-            return generator.Build(flight);
+        Scientist.Science<FlightManifest>("build flight manifest", exp => {
+            exp.Use(() => {
+                LegacyManifestGenerator generator = new();
+                return generator.Build(flight);
+            });
+            exp.Try(() => {
+                RewrittenManifestGenerator generator = new();
+                return generator.Build(flight);
+            });
+            exp.Compare((a, b) => a.Arrival == b.Arrival &&
+                                  a.Departure == b.Departure &&
+                                  a.PassengerCount == b.PassengerCount);
+            exp.ThrowOnMismatches = true;
         });
-        exp.Try(() => {
-            RewrittenManifestGenerator generator = new();
-            return generator.Build(flight);
-        });
-        exp.Compare((a, b) => a.Arrival == b.Arrival &&
-                              a.Departure == b.Departure &&
-                              a.PassengerCount == b.PassengerCount);
-        exp.ThrowOnMismatches = true;
-    });
-}
+    }
 
 
     private static FlightInfo GenerateEmptyFlight(string from, string to) {
