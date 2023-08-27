@@ -1,7 +1,7 @@
 ﻿namespace Packt.CloudySkiesAir.Chapter6.Flight.Scheduling.Flights;
 
 public class CargoItem : ICargoItem {
-  public string ItemType { get; set; }
+  public required string ItemType { get; init; }
   public int Quantity { get; set; }
   public void LogManifest() {
     Console.WriteLine($"Customized: {ToString()}");

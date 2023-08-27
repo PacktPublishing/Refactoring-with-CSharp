@@ -40,12 +40,10 @@ public class FlightSchedulerTests {
       => new() {
           Id = id,
           Status = FlightStatus.OnTime,
-          Departure = new AirportEvent() {
-              Location = _airport1,
+          Departure = new AirportEvent(_airport1) {
               Time = DateTime.Now
           },
-          Arrival = new AirportEvent() {
-              Location = _airport2,
+          Arrival = new AirportEvent(_airport2) {
               Time = DateTime.Now.AddHours(2)
           }
       };

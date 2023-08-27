@@ -1,6 +1,5 @@
 ﻿namespace Packt.CloudySkiesAir.Chapter6.Flight.Scheduling;
 
-public class AirportEvent {
-  public Airport Location { get; set; }
+public record class AirportEvent (Airport Location) {
   public DateTime Time { get; set; }
 }

@@ -6,9 +6,16 @@ public class Airport {
   public string Name { get; set; }
 
   public override bool Equals(object? obj) {
-    return obj is Airport airport &&
-           Country == airport.Country &&
-           Code == airport.Code;
+    Airport? otherAirport = obj as Airport;
+
+    if (otherAirport == null ) return false;
+
+    string otherName = otherAirport.Name;
+    string otherCountry = otherAirport.Country;
+    string otherCode = otherAirport.Code;
+
+    return Country == otherCountry &&
+           Code == otherCode;
   }
 
   public override int GetHashCode() {

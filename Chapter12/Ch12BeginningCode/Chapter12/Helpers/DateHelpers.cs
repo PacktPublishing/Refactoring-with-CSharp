@@ -1,4 +1,6 @@
-﻿namespace Packt.CloudySkiesAir.Chapter6.Helpers;
+﻿using System.Globalization;
+
+namespace Packt.CloudySkiesAir.Chapter6.Helpers;
 
 public static class DateHelpers {
   public static string Format(this DateTime time) {
