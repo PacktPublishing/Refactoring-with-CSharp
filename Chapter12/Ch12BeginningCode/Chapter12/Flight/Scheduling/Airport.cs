@@ -1,4 +1,4 @@
-﻿namespace Packt.CloudySkiesAir.Chapter6.Flight.Scheduling;
+﻿namespace Packt.CloudySkiesAir.Chapter12.Flight.Scheduling;
 
 public class Airport {
   public string Country { get; set; }
@@ -8,7 +8,8 @@ public class Airport {
   public override bool Equals(object? obj) {
     Airport? otherAirport = obj as Airport;
 
-    if (otherAirport == null ) return false;
+    if (otherAirport == null)
+      return false;
 
     string otherName = otherAirport.Name;
     string otherCountry = otherAirport.Country;

@@ -1,4 +1,4 @@
-﻿namespace Packt.CloudySkiesAir.Chapter6.Flight.Scheduling.Flights;
+﻿namespace Packt.CloudySkiesAir.Chapter12.Flight.Scheduling.Flights;
 
 public class PassengerFlightInfo : FlightInfoBase {
   private int _passengers;

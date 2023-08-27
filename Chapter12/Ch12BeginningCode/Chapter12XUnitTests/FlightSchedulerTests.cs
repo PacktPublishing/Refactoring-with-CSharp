@@ -1,7 +1,7 @@
-﻿using Packt.CloudySkiesAir.Chapter6.Flight.Scheduling;
-using Packt.CloudySkiesAir.Chapter6.Flight.Scheduling.Flights;
+﻿using Packt.CloudySkiesAir.Chapter12.Flight.Scheduling;
+using Packt.CloudySkiesAir.Chapter12.Flight.Scheduling.Flights;
 
-namespace Chapter6XUnitTests;
+namespace Chapter12UnitTests;
 
 public class FlightSchedulerTests {
 

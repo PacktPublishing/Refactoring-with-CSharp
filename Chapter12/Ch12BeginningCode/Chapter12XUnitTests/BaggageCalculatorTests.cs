@@ -1,6 +1,6 @@
-using Packt.CloudySkiesAir.Chapter6.Flight.Baggage;
+using Packt.CloudySkiesAir.Chapter12.Flight.Baggage;
 
-namespace Chapter6XUnitTests {
+namespace Chapter12UnitTests {
     public class BaggageCalculatorTests {
         [Fact]
         public void CarryOnBaggageIsPricedCorrectly() {

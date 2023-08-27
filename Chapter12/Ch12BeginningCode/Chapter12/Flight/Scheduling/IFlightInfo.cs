@@ -1,6 +1,6 @@
-﻿using Packt.CloudySkiesAir.Chapter6.Flight.Scheduling.Flights;
+﻿using Packt.CloudySkiesAir.Chapter12.Flight.Scheduling.Flights;
 
-namespace Packt.CloudySkiesAir.Chapter6.Flight.Scheduling;
+namespace Packt.CloudySkiesAir.Chapter12.Flight.Scheduling;
 
 public interface IFlightInfo {
   string Id { get; }

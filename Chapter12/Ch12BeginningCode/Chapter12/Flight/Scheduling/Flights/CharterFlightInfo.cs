@@ -1,7 +1,7 @@
 ﻿using System.Globalization;
 using System.Text;
 
-namespace Packt.CloudySkiesAir.Chapter6.Flight.Scheduling.Flights;
+namespace Packt.CloudySkiesAir.Chapter12.Flight.Scheduling.Flights;
 
 public class CharterFlightInfo : FlightInfoBase {
   public List<ICargoItem> Cargo { get; } = new();

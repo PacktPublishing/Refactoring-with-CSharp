@@ -1,6 +1,6 @@
-﻿using Packt.CloudySkiesAir.Chapter6.Flight;
+﻿using Packt.CloudySkiesAir.Chapter12.Flight;
 
-namespace Chapter6XUnitTests; 
+namespace Chapter12UnitTests;
 
 public class FlightTests {
     [Fact]

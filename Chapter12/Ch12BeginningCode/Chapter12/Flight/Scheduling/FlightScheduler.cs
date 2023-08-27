@@ -1,6 +1,6 @@
-﻿using Packt.CloudySkiesAir.Chapter6.Flight.Scheduling.Search;
+﻿using Packt.CloudySkiesAir.Chapter12.Flight.Scheduling.Search;
 
-namespace Packt.CloudySkiesAir.Chapter6.Flight.Scheduling;
+namespace Packt.CloudySkiesAir.Chapter12.Flight.Scheduling;
 
 public class FlightScheduler {
   private readonly List<IFlightInfo> _flights = new();

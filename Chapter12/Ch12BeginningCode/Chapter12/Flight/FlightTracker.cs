@@ -1,8 +1,8 @@
-﻿using Packt.CloudySkiesAir.Chapter6.Flight.Scheduling;
-using Packt.CloudySkiesAir.Chapter6.Flight.Scheduling.Flights;
-using Packt.CloudySkiesAir.Chapter6.Helpers;
+﻿using Packt.CloudySkiesAir.Chapter12.Flight.Scheduling;
+using Packt.CloudySkiesAir.Chapter12.Flight.Scheduling.Flights;
+using Packt.CloudySkiesAir.Chapter12.Helpers;
 
-namespace Packt.CloudySkiesAir.Chapter6.Flight;
+namespace Packt.CloudySkiesAir.Chapter12.Flight;
 
 public class FlightTracker {
   private readonly FlightScheduler _scheduler;

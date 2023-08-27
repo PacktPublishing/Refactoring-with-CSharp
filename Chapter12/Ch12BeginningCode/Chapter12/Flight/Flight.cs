@@ -1,4 +1,4 @@
-﻿namespace Packt.CloudySkiesAir.Chapter6.Flight;
+﻿namespace Packt.CloudySkiesAir.Chapter12.Flight;
 
 public class Flight {
   public string BuildMessage(string id, string status) {

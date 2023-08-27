@@ -1,4 +1,4 @@
-﻿namespace Packt.CloudySkiesAir.Chapter6.Flight.Baggage;
+﻿namespace Packt.CloudySkiesAir.Chapter12.Flight.Baggage;
 
 public class BaggageCalculator {
   private const decimal CarryOnFee = 30M;

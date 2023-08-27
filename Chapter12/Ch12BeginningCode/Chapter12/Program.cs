@@ -1,4 +1,4 @@
-﻿namespace Packt.CloudySkiesAir.Chapter6;
+﻿namespace Packt.CloudySkiesAir.Chapter12;
 
 public class Program {
   public static void Main(string[] args) {

@@ -1,4 +1,4 @@
-﻿namespace Packt.CloudySkiesAir.Chapter6.Flight.Scheduling.Search;
+﻿namespace Packt.CloudySkiesAir.Chapter12.Flight.Scheduling.Search;
 
 public class AirportFilter : FlightFilterBase {
   public bool IsDeparture { get; set; }

@@ -1,4 +1,6 @@
-﻿namespace Packt.CloudySkiesAir.Chapter6.Flight.Scheduling.Flights;
+﻿using Packt.CloudySkiesAir.Chapter12.Flight.Scheduling;
+
+namespace Packt.CloudySkiesAir.Chapter12.Flight.Scheduling.Flights;
 
 public abstract class FlightInfoBase : IFlightInfo {
   public required AirportEvent Arrival { get; init; }

@@ -1,4 +1,4 @@
-﻿namespace Packt.CloudySkiesAir.Chapter6.Flight.Boarding;
+﻿namespace Packt.CloudySkiesAir.Chapter12.Flight.Boarding;
 
 public class Passenger {
   public required string FirstName { get; set; }
