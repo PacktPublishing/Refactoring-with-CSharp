@@ -7,7 +7,6 @@ public class Airport {
 
   public override bool Equals(object? obj) {
     Airport? otherAirport = obj as Airport;
-
     if (otherAirport == null)
       return false;
 
@@ -19,9 +18,8 @@ public class Airport {
            Code == otherCode;
   }
 
-  public override int GetHashCode() {
-    return HashCode.Combine(Country, Code);
-  }
+  public override int GetHashCode() => 
+    HashCode.Combine(Country, Code);
 
   public override string ToString() => Code;
 }
