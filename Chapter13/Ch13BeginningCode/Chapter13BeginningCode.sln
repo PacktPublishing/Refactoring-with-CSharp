@@ -3,7 +3,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34024.191
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Packt.Analyzers", "Packt.Analyzers\Packt.Analyzers.csproj", "{6FD4DF7E-5FBF-48B3-8DC2-D3ABDC48BBCC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Packt.Analyzers.Tests", "Packt.Analyzers.Tests\Packt.Analyzers.Tests.csproj", "{47129117-5AEE-492A-9AC3-AA2247A97088}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6FD4DF7E-5FBF-48B3-8DC2-D3ABDC48BBCC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FD4DF7E-5FBF-48B3-8DC2-D3ABDC48BBCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6FD4DF7E-5FBF-48B3-8DC2-D3ABDC48BBCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6FD4DF7E-5FBF-48B3-8DC2-D3ABDC48BBCC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47129117-5AEE-492A-9AC3-AA2247A97088}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47129117-5AEE-492A-9AC3-AA2247A97088}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47129117-5AEE-492A-9AC3-AA2247A97088}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47129117-5AEE-492A-9AC3-AA2247A97088}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
