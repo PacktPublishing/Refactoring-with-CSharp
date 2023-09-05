@@ -18,8 +18,6 @@ public class Flight
   public string Id {get; set;}
   public string DepartAirport {get; set;}
   public string ArriveAirport {get; set;}
-  public DateTime DepartTime {get; set;}
-  public DateTime ArriveTime {get; set;}
   public override string ToString() => Id;
 }";
 
@@ -35,8 +33,6 @@ public class [|Flight|]
   public string Id {get; set;}
   public string DepartAirport {get; set;}
   public string ArriveAirport {get; set;}
-  public DateTime DepartTime {get; set;}
-  public DateTime ArriveTime {get; set;}
 }";
 
     [Fact]
