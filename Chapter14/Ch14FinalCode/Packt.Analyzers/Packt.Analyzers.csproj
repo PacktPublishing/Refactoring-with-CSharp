@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<IncludeBuildOutput>false</IncludeBuildOutput>
+		<PackageId>Packt.Analyzers</PackageId>
+		<PackageVersion>1.0.3</PackageVersion>
+		<Description>
+			A sample Roslyn diagnostic analyzer and its associated code fix
+		</Description>
+		<RepositoryUrl>
+			https://github.com/PacktPublishing/Refactoring-with-CSharp
+		</RepositoryUrl>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+	</PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.CodeAnalysis" Version="4.0.1" />
+		<None Include="$(OutputPath)\Packt.Analyzers.dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
+	</ItemGroup>
+</Project>
