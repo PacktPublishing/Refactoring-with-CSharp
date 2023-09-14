@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33723.286
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Packt.FlightQueryDecoder", "Packt.FlightQueryDecoder\Packt.FlightQueryDecoder.csproj", "{840BFF9E-47AD-41EE-A544-282C4D33FDC8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Packt.FlightQueryDecoder.Tests", "Packt.FlightQueryDecoder.Tests\Packt.FlightQueryDecoder.Tests.csproj", "{DF9A19E9-940B-497F-BB12-0C80EAC5301D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{840BFF9E-47AD-41EE-A544-282C4D33FDC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{840BFF9E-47AD-41EE-A544-282C4D33FDC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{840BFF9E-47AD-41EE-A544-282C4D33FDC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{840BFF9E-47AD-41EE-A544-282C4D33FDC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF9A19E9-940B-497F-BB12-0C80EAC5301D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF9A19E9-940B-497F-BB12-0C80EAC5301D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF9A19E9-940B-497F-BB12-0C80EAC5301D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF9A19E9-940B-497F-BB12-0C80EAC5301D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {75E04B7D-1F5D-4B42-8A80-ABAB4FCC852A}
+	EndGlobalSection
+EndGlobal
