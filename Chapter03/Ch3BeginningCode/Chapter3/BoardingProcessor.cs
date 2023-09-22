@@ -17,7 +17,7 @@ public class BoardingProcessor {
 
     DisplayBoardingHeader();
 
-    foreach (Passenger passenger in passengers) {
+    foreach (Passenger passenger in filteredPassengers) {
       string statusMessage = passenger.HasBoarded
         ? "Onboard"
         : CanPassengerBoard(passenger);

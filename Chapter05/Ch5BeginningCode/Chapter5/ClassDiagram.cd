@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="Packt.CloudySkiesAir.Chapter4.FlightScheduler">
+  <Class Name="Packt.CloudySkiesAir.Chapter5.FlightScheduler">
     <Position X="0.75" Y="0.5" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAACAAAAAACAAAAAAAAAAAAAAAAAAAAAgACQ=</HashCode>
@@ -10,8 +10,8 @@
       <Field Name="_flights" />
     </ShowAsCollectionAssociation>
   </Class>
-  <Class Name="Packt.CloudySkiesAir.Chapter4.PassengerFlightInfo" BaseTypeListCollapsed="true">
-    <Position X="5.75" Y="2.75" Width="1.75" />
+  <Class Name="Packt.CloudySkiesAir.Chapter5.PassengerFlightInfo" BaseTypeListCollapsed="true">
+    <Position X="5.75" Y="3" Width="1.75" />
     <Members>
       <Field Name="_passengers" Hidden="true" />
     </Members>
@@ -21,22 +21,22 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="Packt.CloudySkiesAir.Chapter4.FreightFlightInfo" BaseTypeListCollapsed="true">
-    <Position X="3" Y="2.75" Width="1.75" />
+  <Class Name="Packt.CloudySkiesAir.Chapter5.FreightFlightInfo" BaseTypeListCollapsed="true">
+    <Position X="3" Y="3" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AABCEAAAAAACAAIEQAAAEAAAAAAAAAABAQAAAAAAAAA=</HashCode>
       <FileName>IFlightInfo.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="Packt.CloudySkiesAir.Chapter4.AirTravel.Airport">
-    <Position X="8" Y="0.5" Width="1.25" />
+  <Class Name="Packt.CloudySkiesAir.Chapter5.AirTravel.Airport">
+    <Position X="7.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAgAAQAAAIAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Airport.cs</FileName>
+      <FileName>AirportInfo.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Interface Name="Packt.CloudySkiesAir.Chapter4.IFlightInfo">
+  <Interface Name="Packt.CloudySkiesAir.Chapter5.IFlightInfo">
     <Position X="4.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAAACAAIAQAAAEAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
