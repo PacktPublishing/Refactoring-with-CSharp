@@ -28,7 +28,7 @@ public class MileageTrackerTests {
     }
 
     [Fact]
-    public void RemoveMileageShouldDecreaseBalance() {
+    public void RedeemMileageShouldDecreaseBalance() {
         // Arrange
         MileageTracker tracker = new();
         tracker.AddMiles(900);
@@ -41,7 +41,7 @@ public class MileageTrackerTests {
     }
 
     [Fact]
-    public void RemoveMileageShouldPreventNegativeBalance() {
+    public void RedeemMileageShouldPreventNegativeBalance() {
         // Arrange
         MileageTracker tracker = new();
         int startingBalance = tracker.Balance;
@@ -56,7 +56,7 @@ public class MileageTrackerTests {
     [Theory]
     [InlineData(900, 250, 750)]
     [InlineData(0, 2500, 100)]
-    public void RemoveMileageShouldResultInCorrectBalance(int addAmount, int redeemAmount, int expectedBalance) {
+    public void RedeemMileageShouldResultInCorrectBalance(int addAmount, int redeemAmount, int expectedBalance) {
         // Arrange
         MileageTracker tracker = new();
         tracker.AddMiles(addAmount);
