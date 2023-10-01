@@ -4,6 +4,7 @@ using Packt.CloudySkiesAir.Chapter10;
 using System.Collections.Generic;
 
 using Flights = System.Collections.Generic.IEnumerable<Packt.CloudySkiesAir.Chapter10.FlightInfo>;
+using Ardalis.GuardClauses;
 
 namespace Packt.CloudySkiesAir.Chapter10;
 
@@ -55,7 +56,11 @@ public class CloudySkiesFlightProvider : IDisposable {
     return flightInfo;
   }
 
+
   public Flights GetFlightsByMiles(int maxMiles, string apiKey) {
+    Guard.Against.NegativeOrZero(maxMiles);
+    Guard.Against.NullOrWhiteSpace(apiKey);
+
     RestRequest request = new($"/flights/uptodistance/{maxMiles}");
     request.AddHeader("x-api-key", apiKey);
 

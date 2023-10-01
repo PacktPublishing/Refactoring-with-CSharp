@@ -27,11 +27,11 @@ public class FlightTracker {
             flight.Status = FlightStatus.Delayed;
             Console.WriteLine($"{id} delayed until {newDepartureTime.Format()}");
         };
-        return UpdateFlightIfFound(id, updateAction);
+        return UpdateFlight(id, updateAction);
     }
 
     public Flight? MarkFlightDeparted(string id, DateTime departureTime) {
-        return UpdateFlightIfFound(id, flight => {
+        return UpdateFlight(id, flight => {
             flight.DepartureTime = departureTime;
             flight.Status = FlightStatus.Departed;
             Console.WriteLine($"{id} departed at {departureTime.Format()}.");
@@ -39,7 +39,7 @@ public class FlightTracker {
     }
 
     public Flight? MarkFlightArrived(string id, DateTime arrivalTime, string gate = "TBD") {
-        return UpdateFlightIfFound(id, flight => {
+        return UpdateFlight(id, flight => {
             flight.ArrivalTime = arrivalTime;
             flight.Gate = gate;
             flight.Status = FlightStatus.OnTime;
@@ -47,7 +47,7 @@ public class FlightTracker {
         });
     }
 
-    private Flight? UpdateFlightIfFound(string id, Action<Flight> updateAction) {
+    private Flight? UpdateFlight(string id, Action<Flight> updateAction) {
         Flight? flight = FindFlightById(id);
         if (flight != null) {
             updateAction(flight);

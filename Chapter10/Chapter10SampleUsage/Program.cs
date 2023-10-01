@@ -10,10 +10,10 @@ foreach (BoardingPass pass in passes) {
             Flight.Status: FlightStatus.Pending,
             Group: 1 or 2 or 3
         }
-         => $"{pass.passenger} board now", 
+         => $"{pass.Passenger} board now", 
         { Flight.Status: not  FlightStatus.Active or FlightStatus.Completed } 
-            => $"{pass.passenger} flight missed",
-        _ => $"{pass.passenger} please wait",
+            => $"{pass.Passenger} flight missed",
+        _ => $"{pass.Passenger} please wait",
     };
     Console.WriteLine(message);
 }
@@ -38,5 +38,15 @@ if (myFlight != null) {
 } else {
     Console.WriteLine($"Could not find flight {id}");
 }
+
+Console.WriteLine("Enter a mileage amount: ");
+string milesStr = Console.ReadLine()!;
+int miles = int.Parse(milesStr);
+
+flights = cloudySkies.GetFlightsByMiles(miles, apiKey);
+foreach (FlightInfo flight in flights) {
+    Console.WriteLine(flight);
+}
+
 
 
