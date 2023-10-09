@@ -4,14 +4,15 @@
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<IncludeBuildOutput>false</IncludeBuildOutput>
 		<PackageId>Packt.Analyzers</PackageId>
-		<PackageVersion>1.0.3</PackageVersion>
+		<PackageVersion>1.0.4</PackageVersion>
 		<Description>
-			A sample Roslyn diagnostic analyzer and its associated code fix
+			Sample analyzer with fix from "Refactoring with C#" by Matt Eland via Packt Publishing.
 		</Description>
-		<RepositoryUrl>
-			https://github.com/PacktPublishing/Refactoring-with-CSharp
-		</RepositoryUrl>
+		<RepositoryUrl>https://github.com/PacktPublishing/Refactoring-with-CSharp</RepositoryUrl>
+		<PackageProjectUrl>https://github.com/PacktPublishing/Refactoring-with-CSharp</PackageProjectUrl>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<Authors>Matt Eland</Authors>
+		<Company>Packt Publishing</Company>
 	</PropertyGroup>
 	<ItemGroup>
 		<PackageReference Include="Microsoft.CodeAnalysis" Version="4.0.1" />

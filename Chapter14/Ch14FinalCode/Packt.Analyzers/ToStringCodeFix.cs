@@ -11,6 +11,9 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace Packt.Analyzers {
+
+    [Shared]
+    [ExportCodeFixProvider(LanguageNames.CSharp, Name = nameof(ToStringCodeFix))]
     public class ToStringCodeFix : CodeFixProvider {
         public override ImmutableArray<string> FixableDiagnosticIds
             => ImmutableArray.Create(ToStringAnalyzer.Rule.Id);
