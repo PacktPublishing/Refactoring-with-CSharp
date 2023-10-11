@@ -11,7 +11,7 @@
 		<RepositoryUrl>https://github.com/PacktPublishing/Refactoring-with-CSharp</RepositoryUrl>
 		<PackageProjectUrl>https://github.com/PacktPublishing/Refactoring-with-CSharp</PackageProjectUrl>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
-		<Authors>Matt Eland</Authors>
+		<Authors>Matt Eland, Packt</Authors>
 		<Company>Packt Publishing</Company>
 	</PropertyGroup>
 	<ItemGroup>
