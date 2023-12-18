@@ -8,12 +8,4 @@
     <RootNamespace>Packt.CloudySkiesAir.Chapter7</RootNamespace>
   </PropertyGroup>
 
-  <ItemGroup>
-    <EditorConfigFiles Remove="..\.editorconfig" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="..\.editorconfig" />
-  </ItemGroup>
-
 </Project>

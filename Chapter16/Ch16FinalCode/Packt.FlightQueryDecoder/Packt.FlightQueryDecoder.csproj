@@ -7,12 +7,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <EditorConfigFiles Remove="C:\Dev\repos\RefactoringWithCSharp\Chapter16\Ch16BeginningCode\Packt.FlightQueryDecoder\.editorconfig" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="C:\Dev\repos\RefactoringWithCSharp\Chapter16\Ch16BeginningCode\Packt.FlightQueryDecoder\.editorconfig" />
-  </ItemGroup>
-
 </Project>

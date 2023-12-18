@@ -9,15 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <EditorConfigFiles Remove="..\.editorconfig" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="..\.editorconfig" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Bogus" Version="34.0.2" />
+    <PackageReference Include="Bogus" Version="35.0.1" />
   </ItemGroup>
 
 </Project>

@@ -9,10 +9,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <EditorConfigFiles Remove="..\.editorconfig" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Remove="DatabaseCreate.sql" />
     <None Remove="SampleFlights.csv" />
   </ItemGroup>
@@ -21,10 +17,6 @@
     <Content Include="SampleFlights.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="..\.editorconfig" />
   </ItemGroup>
 
   <ItemGroup>
