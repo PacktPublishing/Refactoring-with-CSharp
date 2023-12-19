@@ -1,10 +1,10 @@
 ﻿namespace Packt.CloudySkiesAir.Chapter9.Flight.Scheduling.Flights;
 
 public abstract record FlightInfoBase : IFlightInfo {
-  public AirportEvent Arrival { get; set; }
-  public AirportEvent Departure { get; set; }
+  public AirportEvent Arrival { get; set; } = default!;
+  public AirportEvent Departure { get; set; } = default!;
   public TimeSpan Duration => Departure.Time - Arrival.Time;
-  public string Id { get; set; }
+  public string Id { get; set; } = default!;
   public FlightStatus Status { get; set; } = FlightStatus.OnTime;
 
   public virtual string BuildFlightIdentifier() =>

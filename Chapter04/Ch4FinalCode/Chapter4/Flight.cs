@@ -1,21 +1,15 @@
 ﻿namespace Packt.CloudySkiesAir.Chapter4;
 
-public class Flight {
-    public Flight(string id, string destination, DateTime departureTime) {
-        Id = id;
-        Destination = destination;
-        DepartureTime = departureTime;
-    }
-
+public class Flight(string id, string destination, DateTime departureTime) {
     public Flight(string id, string destination, DateTime departureTime, FlightStatus status) : this(id, destination, departureTime) {
         Status = status;
     }
 
-    public string Id { get; set; }
-    public string Destination { get; set; }
-    public DateTime DepartureTime { get; set; }
+    public string Id { get; set; } = id;
+    public string Destination { get; set; } = destination;
+    public DateTime DepartureTime { get; set; } = departureTime;
     public DateTime ArrivalTime { get; set; }
-    public string Gate { get; set; }
+    public string Gate { get; set; } = default!;
     public FlightStatus Status { get; set; }
 
     public override string ToString() {

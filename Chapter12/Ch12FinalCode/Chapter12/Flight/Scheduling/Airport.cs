@@ -16,7 +16,7 @@ public class Airport {
            Code == otherCode;
   }
 
-  public override int GetHashCode() => 
+  public override int GetHashCode() =>
     HashCode.Combine(Country, Code);
 
   public override string ToString() => Code;

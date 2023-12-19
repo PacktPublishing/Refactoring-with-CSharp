@@ -1,27 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace Packt.CloudySkiesAir.Chapter8.AntiPatterns;
 
-namespace Packt.CloudySkiesAir.Chapter8.AntiPatterns;
-
-public class ThrowingExceptionAntiPatterns {
-
-  public void DontThrowException() {
+public static class ThrowingExceptionAntiPatterns {
+  public static void DontThrowException() {
     // This forces someone to catch Exception in order to handle it
     throw new Exception("Something bad happened!");
   }
 
-  public void DoThrowBuiltInExceptions() {
+  public static void DoThrowBuiltInExceptions() {
     throw new InvalidOperationException("Flight not found");
   }
 
-  public void DoThrowCustomExceptionsWhenAppropriate() {
+  public static void DoThrowCustomExceptionsWhenAppropriate() {
     throw new FlightNotFoundException("CS1234");
   }
 
-  public void DontRethrowWithThrowEx() {
+  public static void DontRethrowWithThrowEx() {
     try {
       // Risky code
     }
@@ -31,7 +24,7 @@ public class ThrowingExceptionAntiPatterns {
     }
   }
 
-  public void DoRethrowWithThrow() {
+  public static void DoRethrowWithThrow() {
     try {
       // Risky code
     }

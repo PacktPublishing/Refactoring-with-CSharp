@@ -1,23 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace Packt.CloudySkiesAir.Chapter3;
 
-namespace Packt.CloudySkiesAir.Chapter3; 
-
-public class LinqExamples {
-
-  public void UseCorrectMethods() {
+public static class LinqExamples {
+  public static void UseCorrectMethods() {
     PassengerGenerator generator = new();
     List<Passenger> people = generator.GeneratePassengers(50);
 
-    Passenger author = people.FirstOrDefault(p => p.FullName == "Matt Eland");
+    Passenger? author = people.Find(p => p.FullName == "Matt Eland");
 
-    Console.WriteLine($"{author.FullName} is in group {author.BoardingGroup}");
+    if (author != null) {
+      Console.WriteLine($"{author.FullName} is in group {author.BoardingGroup}");
+    }
   }
 
-  public void CombineLinqMethods() {
+  public static void CombineLinqMethods() {
     PassengerGenerator generator = new();
     List<Passenger> people = generator.GeneratePassengers(50);
 
@@ -26,17 +21,17 @@ public class LinqExamples {
     Passenger firstBoarded = people.First(p => p.HasBoarded);
   }
 
-  public void TransformingWithSelect() {
+  public static void TransformingWithSelect() {
     PassengerGenerator generator = new();
     List<Passenger> people = generator.GeneratePassengers(50);
 
-List<string> names = 
+    List<string> names =
       people.Where(p => !p.HasBoarded)
             .Select(p => $"{p.FullName}-{p.BoardingGroup}")
-            .ToList();      
+            .ToList();
   }
 
-  public void EnumeratingWithTakeAndSkip() {
+  public static void EnumeratingWithTakeAndSkip() {
     PassengerGenerator generator = new();
     List<Passenger> people = generator.GeneratePassengers(50)
                                       .OrderBy(p => p.BoardingGroup)
@@ -45,15 +40,16 @@ List<string> names =
     foreach (Passenger p in people.SkipWhile(p => p.BoardingGroup < 3).Take(3)) {
       Console.WriteLine($"Upgrading {p.FullName}");
     }
-
   }
 
-  public void RangeIndexers() {
+  public static void RangeIndexers() {
     PassengerGenerator generator = new();
     List<Passenger> people = generator.GeneratePassengers(50).ToList();
 
-    List<Passenger> firstThree = people[0..3];
-    List<Passenger> lastThree = people[^3..^0];
-    Passenger last = people[^1];
+    _ = people[0..3];
+
+    _ = people[^3..^0];
+
+    _ = people[^1];
   }
 }

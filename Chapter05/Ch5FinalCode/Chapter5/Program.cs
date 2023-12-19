@@ -1,7 +1,5 @@
-﻿using System;
-
-namespace Packt.CloudySkiesAir.Chapter5 {
-  public class Program {
+﻿namespace Packt.CloudySkiesAir.Chapter5 {
+  public static class Program {
     public static void Main() {
       Airport dep = new() {
         Code = "DNA",

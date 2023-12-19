@@ -1,24 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace Packt.CloudySkiesAir.Chapter4;
 
-namespace Packt.CloudySkiesAir.Chapter4; 
-
-public class FuncSample {
-
-    public void AddAction(int x, int y) {
+public static class FuncSample {
+    public static void AddAction(int x, int y) {
         int sum = x + y;
         Console.WriteLine($"{x} + {y} is {sum}");
     }
 
-    public string AddFunc(int x, int y) {
+    public static string AddFunc(int x, int y) {
         int sum = x + y;
         return $"{x} + {y} is {sum}";
     }
 
-    public void ActionFuncVariables() {
+    public static void ActionFuncVariables() {
         Action<int, int> myAction = AddAction;
         myAction(2, 2);
 

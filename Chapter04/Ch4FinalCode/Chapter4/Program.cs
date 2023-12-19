@@ -1,20 +1,19 @@
 ﻿namespace Packt.CloudySkiesAir.Chapter4;
 
-internal class Program
-{
+internal static class Program {
     public static void Main() {
         FlightTracker flightTracker = new();
 
         Random rand = new();
-        string[] destinations = { "CMH", "ATL", "MCI", "CLT", "SAN", "ORD", "CHS", "PNS" };
-        string[] gates = { "A01", "A02", "A03", "A04", "C01", "C02", "C03", "C04" };
+        string[] destinations = ["CMH", "ATL", "MCI", "CLT", "SAN", "ORD", "CHS", "PNS"];
+        string[] gates = ["A01", "A02", "A03", "A04", "C01", "C02", "C03", "C04"];
         int nextId = 2024;
 
         DateTime nextFlightTime = DateTime.Now;
         for (int i = 0; i < 15; i++) {
             nextFlightTime = nextFlightTime.AddMinutes(rand.Next(1, 25));
 
-            AddRandomFlight(flightTracker, rand, destinations, gates, nextId, nextFlightTime);
+            AddRandomFlight(flightTracker, rand, destinations, nextId, nextFlightTime);
 
             nextId += rand.Next(1, 7);
         }
@@ -25,7 +24,7 @@ internal class Program
         flightTracker.DisplayFlights();
     }
 
-    private static void AddRandomFlight(FlightTracker flightTracker, Random rand, string[] destinations, string[] gates, int nextId, DateTime nextFlightTime) {
+    private static void AddRandomFlight(FlightTracker flightTracker, Random rand, string[] destinations, int nextId, DateTime nextFlightTime) {
         string dest = destinations[rand.Next(destinations.Length)];
 
         Flight flight = flightTracker.ScheduleNewFlight($"CSA{nextId}", dest, nextFlightTime);

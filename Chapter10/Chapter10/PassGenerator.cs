@@ -5,7 +5,7 @@ namespace Packt.CloudySkiesAir.Chapter10;
 public static class PassGenerator {
   public static List<BoardingPass> Generate() {
     Faker faker = new();
-    List<BoardingPass> passes = new();
+    List<BoardingPass> passes = [];
 
     for (int i = 0; i < 15; i++) {
       BoardingPass pass = new(faker.Name.FullName()) {
@@ -20,8 +20,8 @@ public static class PassGenerator {
     return passes;
   }
 
-  private static FlightInfo GenerateFlight(Faker faker) 
-    => new FlightInfo() {
+  static FlightInfo GenerateFlight(Faker faker)
+    => new() {
       ArrivalTime = faker.Date.Future(),
       DepartureTime = faker.Date.Soon(),
       Destination = faker.Address.City(),

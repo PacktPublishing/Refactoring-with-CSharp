@@ -1,8 +1,8 @@
 namespace Packt.CloudySkiesAir.Chapter3;
 
 public class Passenger {
-  public string FirstName { get; set; }
-  public string LastName { get; set; }
+  public string FirstName { get; set; } = default!;
+  public string LastName { get; set; } = default!;
   public int BoardingGroup { get; set; }
   public bool IsMilitary { get; set; }
   public bool NeedsHelp { get; set; }

@@ -1,4 +1,4 @@
-﻿namespace Packt.CloudySkiesAir.Chapter2; 
+﻿namespace Packt.CloudySkiesAir.Chapter2;
 
 public class Fee {
   public decimal Total { get; set; }
@@ -7,5 +7,4 @@ public class Fee {
     Console.WriteLine($"{chargeName}: {fee}");
     Total += fee;
   }
-
 }

@@ -3,13 +3,12 @@
 namespace Packt.CloudySkiesAir.Chapter9.Flight.Scheduling {
   public class RewrittenManifestGenerator {
     public FlightManifest Build(FlightInfo flight) {
-
       IReadOnlyDictionary<string, Passenger> bookings = flight.CurrentBookings;
 
       return new FlightManifest() {
         Departure = flight.Departure,
         Arrival = flight.Arrival,
-        PassengerCount = bookings.Count(),
+        PassengerCount = bookings.Count,
         BookedSeats = bookings.Keys.OrderBy(k => k).ToArray(),
         Passengers = bookings.Values
           .OrderBy(p => p.LastName)
@@ -18,5 +17,4 @@ namespace Packt.CloudySkiesAir.Chapter9.Flight.Scheduling {
       };
     }
   }
-
 }

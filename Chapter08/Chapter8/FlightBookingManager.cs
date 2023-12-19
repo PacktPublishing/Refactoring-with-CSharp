@@ -1,7 +1,7 @@
 ﻿namespace Packt.CloudySkiesAir.Chapter8;
 
 public class FlightBookingManager {
-  private readonly IEmailClient _email;
+  readonly IEmailClient _email;
   public FlightBookingManager(IEmailClient email) {
     _email = email;
   }
@@ -13,7 +13,7 @@ public class FlightBookingManager {
     }
     flight.AssignSeat(passenger, seat);
 
-    string message = "Your seat is confirmed";
+    const string message = "Your seat is confirmed";
     _email.SendMessage(passenger.Email, message);
 
     return true;

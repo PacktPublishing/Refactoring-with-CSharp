@@ -10,7 +10,7 @@ public class FlightTimeFilter : FlightFilterBase {
       ? flight.Departure.Time
       : flight.Arrival.Time;
 
-    return MinTime.HasValue && time < MinTime
-      || MaxTime.HasValue && time > MaxTime;
+    return (MinTime.HasValue && time < MinTime)
+      || (MaxTime.HasValue && time > MaxTime);
   }
 }

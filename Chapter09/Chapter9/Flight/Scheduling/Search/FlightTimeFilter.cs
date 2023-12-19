@@ -1,6 +1,4 @@
-﻿using Packt.CloudySkiesAir.Chapter9.Flight.Scheduling;
-
-namespace Packt.CloudySkiesAir.Chapter9.Flight.Scheduling.Search;
+﻿namespace Packt.CloudySkiesAir.Chapter9.Flight.Scheduling.Search;
 
 public class FlightTimeFilter : FlightFilterBase {
   public DateTime? MinTime { get; set; }
@@ -12,7 +10,7 @@ public class FlightTimeFilter : FlightFilterBase {
       ? flight.Departure.Time
       : flight.Arrival.Time;
 
-    return MinTime.HasValue && time < MinTime
-      || MaxTime.HasValue && time > MaxTime;
+    return (MinTime.HasValue && time < MinTime)
+      || (MaxTime.HasValue && time > MaxTime);
   }
 }

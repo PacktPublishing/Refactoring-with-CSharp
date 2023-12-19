@@ -16,7 +16,7 @@ public class PassengerTests {
         Assert.Equal(expected, actual);
     }
 
-    private Passenger Build(string firstName, string lastName) {
+  static Passenger Build(string firstName, string lastName) {
         Passenger passenger = new() {
             FirstName = firstName,
             LastName = lastName

@@ -16,6 +16,4 @@ public class ItineraryManager {
 
   public void AccumulateMiles(int miles) =>
     MilesAccumulated += miles;
-
 }
-

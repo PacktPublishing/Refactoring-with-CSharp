@@ -1,7 +1,7 @@
 ﻿namespace Packt.CloudySkiesAir.Chapter8;
 
 public class FlightBookingManagerViolatesDependencyInversion {
-  private readonly SpecificMailClient _email;
+  readonly SpecificMailClient _email;
   public FlightBookingManagerViolatesDependencyInversion(string connectionString) {
     _email = new SpecificMailClient(connectionString);
   }
@@ -14,7 +14,7 @@ public class FlightBookingManagerViolatesDependencyInversion {
 
     flight.AssignSeat(passenger, seat);
 
-    string message = "Your seat is confirmed";
+    const string message = "Your seat is confirmed";
     _email.SendMessage(passenger.Email, message);
 
     return true;

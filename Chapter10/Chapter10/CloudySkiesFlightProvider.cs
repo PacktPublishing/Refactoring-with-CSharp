@@ -1,15 +1,13 @@
 ﻿using RestSharp;
 using System.Runtime.CompilerServices;
-using Packt.CloudySkiesAir.Chapter10;
-using System.Collections.Generic;
 
 using Flights = System.Collections.Generic.IEnumerable<Packt.CloudySkiesAir.Chapter10.FlightInfo>;
 using Ardalis.GuardClauses;
 
 namespace Packt.CloudySkiesAir.Chapter10;
 
-public class CloudySkiesFlightProvider : IDisposable {
-  private readonly RestClient _client;
+public sealed class CloudySkiesFlightProvider : IDisposable {
+  readonly RestClient _client;
 
   public CloudySkiesFlightProvider() {
     _client = new RestClient("https://PacktRefactoringCSharpAPI.azurewebsites.net");
@@ -56,7 +54,6 @@ public class CloudySkiesFlightProvider : IDisposable {
     return flightInfo;
   }
 
-
   public Flights GetFlightsByMiles(int maxMiles, string apiKey) {
     Guard.Against.NegativeOrZero(maxMiles);
     Guard.Against.NullOrWhiteSpace(apiKey);
@@ -75,9 +72,7 @@ public class CloudySkiesFlightProvider : IDisposable {
     [CallerFilePath] string file = "",
     [CallerLineNumber] int line = 0,
     [CallerMemberName] string name = "",
-    [CallerArgumentExpression(nameof(url))] string expr = "") 
-  {
-
+    [CallerArgumentExpression(nameof(url))] string expr = "") {
     Console.WriteLine($"Making API Call to {url}");
     Console.WriteLine($"Called in {file}:{line} @ {name}");
     Console.WriteLine($"Url expression: {expr}");
@@ -85,4 +80,3 @@ public class CloudySkiesFlightProvider : IDisposable {
 
   public void Dispose() => _client.Dispose();
 }
-
