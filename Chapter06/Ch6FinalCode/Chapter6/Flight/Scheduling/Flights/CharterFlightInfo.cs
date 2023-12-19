@@ -10,7 +10,7 @@ public class CharterFlightInfo : FlightInfoBase {
     if (Cargo.Count != 0) {
       sb.Append(" carrying ");
       foreach (var cargo in Cargo) {
-        sb.Append($"{cargo}, ");
+        sb.Append(cargo).Append(", ");
       }
     }
     return sb.ToString();

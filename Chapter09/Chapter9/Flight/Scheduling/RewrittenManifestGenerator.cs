@@ -2,8 +2,7 @@
 
 namespace Packt.CloudySkiesAir.Chapter9.Flight.Scheduling {
   public class RewrittenManifestGenerator {
-    public static FlightManifest Build(FlightInfo flight) {
-
+    public FlightManifest Build(FlightInfo flight) {
       IReadOnlyDictionary<string, Passenger> bookings = flight.CurrentBookings;
 
       return new FlightManifest() {
@@ -18,5 +17,4 @@ namespace Packt.CloudySkiesAir.Chapter9.Flight.Scheduling {
       };
     }
   }
-
 }

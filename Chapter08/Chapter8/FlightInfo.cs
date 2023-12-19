@@ -1,7 +1,6 @@
 ﻿namespace Packt.CloudySkiesAir.Chapter8;
 
 public class FlightInfo {
-
   public required string Id { get; set; }
   public required string DepartureAirport { get; set; }
   public required string ArrivalAirport { get; set; }
@@ -11,5 +10,4 @@ public class FlightInfo {
 
   public override string? ToString() =>
     $"Flight {Id} from {DepartureAirport} to {ArrivalAirport}";
-
 }

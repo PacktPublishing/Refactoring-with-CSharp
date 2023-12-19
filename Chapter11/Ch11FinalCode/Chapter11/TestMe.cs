@@ -5,9 +5,7 @@ public static class TestMe {
     INumberProvider provider) {
     var numbers = provider.GenerateNumbers();
 
-    return numbers == null
-      ? 0
-      : numbers.Where(x => !x.ToString().Contains('7'))
-               .Max();
+    return (numbers?.Where(x => !x.ToString().Contains('7'))
+               .Max()) ?? 0;
   }
 }

@@ -13,4 +13,3 @@ public class RewardsItineraryManager : ItineraryManager {
     base.ChangeFlight(newFlight, isInvoluntary);
   }
 }
-

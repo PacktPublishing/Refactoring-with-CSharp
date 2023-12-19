@@ -54,7 +54,6 @@ public sealed class CloudySkiesFlightProvider : IDisposable {
     return flightInfo;
   }
 
-
   public Flights GetFlightsByMiles(int maxMiles, string apiKey) {
     Guard.Against.NegativeOrZero(maxMiles);
     Guard.Against.NullOrWhiteSpace(apiKey);
@@ -73,9 +72,7 @@ public sealed class CloudySkiesFlightProvider : IDisposable {
     [CallerFilePath] string file = "",
     [CallerLineNumber] int line = 0,
     [CallerMemberName] string name = "",
-    [CallerArgumentExpression(nameof(url))] string expr = "") 
-  {
-
+    [CallerArgumentExpression(nameof(url))] string expr = "") {
     Console.WriteLine($"Making API Call to {url}");
     Console.WriteLine($"Called in {file}:{line} @ {name}");
     Console.WriteLine($"Url expression: {expr}");
@@ -83,4 +80,3 @@ public sealed class CloudySkiesFlightProvider : IDisposable {
 
   public void Dispose() => _client.Dispose();
 }
-

@@ -1,7 +1,6 @@
 ﻿namespace Packt.CloudySkiesAir.Chapter11;
 
 public class DocumentMe {
-
   /// <summary>
   /// Adds up even numbers in an array.
   /// </summary>

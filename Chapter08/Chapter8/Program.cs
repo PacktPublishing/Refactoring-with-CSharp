@@ -3,7 +3,7 @@ using System.Data.SqlClient;
 
 namespace Packt.CloudySkiesAir.Chapter6;
 
-public class Program {
+public static class Program {
   public static void Main() {
     Console.WriteLine("Welcome to the Cloudy Skies Flight Listing System");
     Console.WriteLine();

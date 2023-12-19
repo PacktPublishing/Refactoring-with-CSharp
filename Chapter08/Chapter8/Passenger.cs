@@ -1,4 +1,4 @@
-﻿namespace Packt.CloudySkiesAir.Chapter8; 
+﻿namespace Packt.CloudySkiesAir.Chapter8;
 
 public class Passenger {
   public required string FirstName { get; set; }

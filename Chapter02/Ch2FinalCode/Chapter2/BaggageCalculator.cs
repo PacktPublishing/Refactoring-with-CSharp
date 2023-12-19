@@ -7,9 +7,8 @@ public class BaggageCalculator {
 
   public decimal HolidayFeePercent { get; set; } = 0.1M;
 
-  public decimal CalculatePrice(int bags, int carryOn, 
+  public decimal CalculatePrice(int bags, int carryOn,
     int passengers, bool isHoliday) {
-
     decimal total = 0;
 
     if (carryOn > 0) {
@@ -34,7 +33,7 @@ public class BaggageCalculator {
     return total;
   }
 
-  static decimal ApplyCheckedBagFee(int bags, 
+  static decimal ApplyCheckedBagFee(int bags,
     int passengers) {
     if (bags <= passengers) {
       decimal firstBagFee = bags * FirstBagFee;

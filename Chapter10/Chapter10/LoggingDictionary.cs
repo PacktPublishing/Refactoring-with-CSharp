@@ -38,25 +38,20 @@ public class BoardingPassDictionary {
   }
 }
 
-public class LoggingDictionary<TKey, TValue> where TKey : class
-{
+public class LoggingDictionary<TKey, TValue> where TKey : class {
   readonly Dictionary<TKey, TValue> _items = [];
-    public bool Contains(TKey identifier)
-      => _items.ContainsKey(identifier);
-    public void AddItem(TKey id, TValue item)
-    {
-        Console.WriteLine($"Adding {id}");
-        _items[id] = item;
+  public bool Contains(TKey identifier)
+    => _items.ContainsKey(identifier);
+  public void AddItem(TKey id, TValue item) {
+    Console.WriteLine($"Adding {id}");
+    _items[id] = item;
+  }
+  public TValue? GetItem(TKey id) {
+    if (Contains(id)) {
+      Console.WriteLine($"Found {id}");
+      return _items[id];
     }
-    public TValue? GetItem(TKey id)
-    {
-        if (Contains(id))
-        {
-            Console.WriteLine($"Found {id}");
-            return _items[id];
-        }
-        Console.WriteLine($"Could not find {id}");
-        return default;
-    }
+    Console.WriteLine($"Could not find {id}");
+    return default;
+  }
 }
-

@@ -5,4 +5,3 @@ public class Flight {
     return $"Flight {id} is {status}";
   }
 }
-

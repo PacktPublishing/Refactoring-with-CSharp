@@ -3,17 +3,17 @@
 namespace Chapter9Tests;
 
 public class FlightTests {
-    [Fact]
-    public void GeneratedMessageShouldBeCorrect() {
-        // Arrange
-        Flight flight = new();
-        string id = "CSA1234";
-        string status = "On Time";
+  [Fact]
+  public void GeneratedMessageShouldBeCorrect() {
+    // Arrange
+    Flight flight = new();
+    const string id = "CSA1234";
+    const string status = "On Time";
 
-        // Act
-        string message = flight.BuildMessage(id, status);
+    // Act
+    string message = flight.BuildMessage(id, status);
 
-        // Assert        
-        message.ShouldBe("Flight CSA1234 is On Time");
-    }
+    // Assert        
+    message.ShouldBe("Flight CSA1234 is On Time");
+  }
 }

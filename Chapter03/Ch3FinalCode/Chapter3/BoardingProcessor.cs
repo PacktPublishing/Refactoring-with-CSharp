@@ -1,6 +1,5 @@
 ﻿namespace Packt.CloudySkiesAir.Chapter3 {
   public class BoardingProcessor {
-
     public int CurrentBoardingGroup { get; set; } = 2;
     public BoardingStatus Status { get; set; }
     readonly int[] _priorityLaneGroups = [1, 2];
@@ -13,7 +12,7 @@
       DisplayBoardingHeader();
 
       foreach (Passenger passenger in passengers) {
-        var statusMessage = passenger.HasBoarded
+        string statusMessage = passenger.HasBoarded
           ? "Onboard"
           : CanPassengerBoard(passenger);
 
@@ -48,9 +47,9 @@
     }
 
     public string CanPassengerBoard(Passenger passenger) {
-      var isMilitary = passenger.IsMilitary;
-      var needsHelp = passenger.NeedsHelp;
-      var group = passenger.BoardingGroup;
+      bool isMilitary = passenger.IsMilitary;
+      bool needsHelp = passenger.NeedsHelp;
+      int group = passenger.BoardingGroup;
 
       return Status switch {
         BoardingStatus.PlaneDeparted => "Flight Departed",

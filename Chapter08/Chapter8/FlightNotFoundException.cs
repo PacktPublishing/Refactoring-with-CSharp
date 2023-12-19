@@ -2,7 +2,5 @@
 
 public class FlightNotFoundException : Exception {
   public string FlightId { get; }
-  public FlightNotFoundException(string flightId) {
-    FlightId = flightId;
-  }
+  public FlightNotFoundException(string flightId) => FlightId = flightId;
 }

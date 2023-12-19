@@ -57,6 +57,6 @@ public class FlightTracker {
         return flight;
     }
 
-    private Flight? FindFlightById(string id) => 
-        _flights.FirstOrDefault(f => f.Id == id);
+    private Flight? FindFlightById(string id) =>
+        _flights.Find(f => f.Id == id);
 }

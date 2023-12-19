@@ -1,11 +1,11 @@
 ﻿namespace Packt.CloudySkiesAir.Chapter11;
 
-public class Program {
+public static class Program {
   public static void Main() {
-    RefactorMe refactorMe = new RefactorMe();
+    RefactorMe refactorMe = new();
     RefactorMe.DisplayRandomNumbers();
 
-    DocumentMe documentMe = new DocumentMe();
+    DocumentMe documentMe = new();
     DocumentMe.AddEvenNumbers([1, 2, 3], 42);
   }
 }

@@ -1,19 +1,15 @@
-﻿namespace Packt.FlightQueryDecoder; 
+﻿namespace Packt.FlightQueryDecoder;
 
-public class FlightQueryParser 
-{
-
+public class FlightQueryParser {
     public FlightQuery ParseQuery(string query) {
-        if (query.StartsWith("AD") && query.Length == 13) 
-        {
+        if (query.StartsWith("AD") && query.Length == 13) {
             var flightQuery = new FlightQuery {
                 Date = DateTime.Parse(query.Substring(2, 5)),
                 Origin = query.Substring(7, 3),
                 Destination = query.Substring(10, 3)
             };
             return flightQuery;
-        } 
-        else {
+        } else {
             throw new ArgumentException("Invalid query format.");
         }
     }
@@ -39,5 +35,4 @@ public class FlightQueryParser
 
         return fqr;
     }
-
 }

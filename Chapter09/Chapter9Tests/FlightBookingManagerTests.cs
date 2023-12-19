@@ -10,7 +10,6 @@ using Snapper.Attributes;
 namespace Chapter9Tests;
 
 public class FlightBookingManagerTests {
-
   [Fact]
   public void BookingFlightShouldSucceedForEmptyFlightTestDouble() {
     // Arrange
@@ -42,7 +41,6 @@ public class FlightBookingManagerTests {
     booked.ShouldBeTrue();
   }
 
-
   [Fact]
   public void BookingFlightShouldSendEmails() {
     // Arrange
@@ -62,7 +60,6 @@ public class FlightBookingManagerTests {
     mockClient.Verify(c => c.SendMessage(passenger.Email, It.IsAny<string>()), Times.Once);
     mockClient.VerifyNoOtherCalls();
   }
-
 
   [Fact]
   public void BookingFlightShouldSendEmailsNSubstitute() {
@@ -121,7 +118,7 @@ public class FlightBookingManagerTests {
       });
       exp.Try(() => {
         RewrittenManifestGenerator generator = new();
-        return RewrittenManifestGenerator.Build(flight);
+        return generator.Build(flight);
       });
       exp.Compare((a, b) => a.Arrival == b.Arrival &&
                             a.Departure == b.Departure &&
@@ -129,7 +126,6 @@ public class FlightBookingManagerTests {
       exp.ThrowOnMismatches = true;
     });
   }
-
 
   static FlightInfo GenerateEmptyFlight(string from, string to) {
     return new() {

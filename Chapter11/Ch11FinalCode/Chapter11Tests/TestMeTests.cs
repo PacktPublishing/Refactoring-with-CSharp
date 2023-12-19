@@ -5,7 +5,7 @@ namespace Packt.CloudySkiesAir.Chapter11.Tests {
     [Fact]
     public void CalculateLargestNumberWithoutASeven_ThrowsException_WhenInputIsNull() {
       // Arrange
-      Mock<INumberProvider> mockProvider = new Mock<INumberProvider>();
+      Mock<INumberProvider> mockProvider = new();
       mockProvider.Setup(x => x.GenerateNumbers())
         .Returns((IEnumerable<int>?)null);
 
@@ -16,7 +16,7 @@ namespace Packt.CloudySkiesAir.Chapter11.Tests {
     [Fact]
     public void CalculateLargestNumberWithoutASeven_ReturnsLargestNumberWithoutSeven_WhenInputIsValid() {
       // Arrange
-      Mock<INumberProvider> mockProvider = new Mock<INumberProvider>();
+      Mock<INumberProvider> mockProvider = new();
       mockProvider.Setup(x => x.GenerateNumbers())
         .Returns(new List<int> { 17, 2, 13, 4, 22, 44 });
 

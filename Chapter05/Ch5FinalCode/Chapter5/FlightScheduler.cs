@@ -44,7 +44,6 @@ public class FlightScheduler {
     DateTime? minDepartTime, DateTime? maxDepartTime,
     DateTime? minArriveTime, DateTime? maxArriveTime,
     TimeSpan? minLength, TimeSpan? maxLength) {
-
     FlightSearch searchParams = new() {
       Arrive = arrive,
       MinArrive = minArriveTime,
@@ -99,5 +98,4 @@ public class FlightScheduler {
   public List<IFlightInfo> Search(List<FlightFilterBase> rules) =>
       _flights.Where(f => rules.All(r => r.ShouldInclude(f)))
               .ToList();
-
 }

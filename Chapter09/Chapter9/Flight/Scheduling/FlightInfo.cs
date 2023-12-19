@@ -1,9 +1,8 @@
 ﻿using Packt.CloudySkiesAir.Chapter9.Flight.Boarding;
 
-namespace Packt.CloudySkiesAir.Chapter9.Flight.Scheduling; 
+namespace Packt.CloudySkiesAir.Chapter9.Flight.Scheduling;
 
 public class FlightInfo {
-
   readonly Dictionary<string, Passenger> _bookedSeats = [];
   public required Airport Departure { get; set; }
   public required Airport Arrival { get; set; }
@@ -17,5 +16,4 @@ public class FlightInfo {
   public bool IsSeatAvailable(string seat) {
     return !_bookedSeats.ContainsKey(seat.ToLower());
   }
-
 }

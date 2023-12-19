@@ -1,7 +1,6 @@
 ﻿namespace Packt.CloudySkiesAir.Chapter9.Flight.Scheduling {
   public class LegacyManifestGenerator {
     public FlightManifest Build(FlightInfo flight) {
-
       // If you're reading this, this code is intentionally a little bad.
       // I had to keep the code simple enough to understand while also
       // illustrate a legacy implementation complex enough to consider rewriting
@@ -27,7 +26,7 @@
       };
 
       int passengerCount = 0;
-      foreach ( var passenger in bookedSeats ) {
+      foreach (var passenger in bookedSeats) {
         passengerCount++;
       }
 
@@ -37,5 +36,4 @@
       return manifest;
     }
   }
-
 }

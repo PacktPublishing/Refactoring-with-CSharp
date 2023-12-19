@@ -1,7 +1,6 @@
 ﻿namespace Packt.CloudySkiesAir.Chapter4;
 
-public class FuncSample {
-
+public static class FuncSample {
     public static void AddAction(int x, int y) {
         int sum = x + y;
         Console.WriteLine($"{x} + {y} is {sum}");

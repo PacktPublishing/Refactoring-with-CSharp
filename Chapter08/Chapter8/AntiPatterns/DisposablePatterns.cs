@@ -1,11 +1,9 @@
 ﻿using System.Data.SqlClient;
 
 namespace Packt.CloudySkiesAir.Chapter8.AntiPatterns {
-  public class DisposablePatterns {
-
+  public static class DisposablePatterns {
     // Usually you won't have a connection string in code, but read it from a config file
     const string connectionString = @"Data Source=localhost\SQLEXPRESS;Initial Catalog=CloudySkies;Integrated Security=True;";
-
 
     public static void UseDisposableResourcesInAUsing1() {
       using (SqlConnection conn = new(connectionString)) {

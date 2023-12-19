@@ -48,14 +48,13 @@ public sealed class FlightRepository : IDisposable {
 
   public void Dispose() => _conn?.Dispose();
 
-    static FlightInfo GetFlightFromDataReader(SqlDataReader reader) {
-        FlightInfo info = new()
-        {
-            Id = reader.GetString("Id"),
-            DepartureAirport = reader.GetString("Departure"),
-            ArrivalAirport = reader.GetString("Arrival"),
-            Miles = reader.GetInt32("Miles")
-        };
+  static FlightInfo GetFlightFromDataReader(SqlDataReader reader) {
+    FlightInfo info = new() {
+      Id = reader.GetString("Id"),
+      DepartureAirport = reader.GetString("Departure"),
+      ArrivalAirport = reader.GetString("Arrival"),
+      Miles = reader.GetInt32("Miles")
+    };
 
     return info;
   }

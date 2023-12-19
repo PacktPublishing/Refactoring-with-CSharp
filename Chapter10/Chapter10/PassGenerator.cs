@@ -20,7 +20,7 @@ public static class PassGenerator {
     return passes;
   }
 
-  static FlightInfo GenerateFlight(Faker faker) 
+  static FlightInfo GenerateFlight(Faker faker)
     => new() {
       ArrivalTime = faker.Date.Future(),
       DepartureTime = faker.Date.Soon(),

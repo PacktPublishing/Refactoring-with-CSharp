@@ -11,20 +11,20 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 WebApplication app = builder.Build();
-            
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment()) {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+  app.UseSwagger();
+  app.UseSwaggerUI();
 }
 
 app.Use((context, next) => {
-    StringValues apiKey = context.Request.Headers["x-api-key"];
-    if (apiKey != "RefactoringWithCSharpBook") {
-        context.Response.StatusCode = (int)HttpStatusCode.Unauthorized;
-        return Task.CompletedTask;
-    }
-    return next();
+  StringValues apiKey = context.Request.Headers["x-api-key"];
+  if (apiKey != "RefactoringWithCSharpBook") {
+    context.Response.StatusCode = (int)HttpStatusCode.Unauthorized;
+    return Task.CompletedTask;
+  }
+  return next();
 });
 
 app.UseHttpsRedirection();

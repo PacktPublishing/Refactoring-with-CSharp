@@ -1,7 +1,6 @@
 ﻿namespace Packt.CloudySkiesAir.Chapter8.AntiPatterns;
 
-public class ThrowingExceptionAntiPatterns {
-
+public static class ThrowingExceptionAntiPatterns {
   public static void DontThrowException() {
     // This forces someone to catch Exception in order to handle it
     throw new Exception("Something bad happened!");

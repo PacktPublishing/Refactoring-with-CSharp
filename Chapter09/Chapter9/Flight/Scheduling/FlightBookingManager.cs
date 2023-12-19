@@ -15,7 +15,7 @@ public class FlightBookingManager {
     }
 
     flight.AssignSeat(passenger, seat);
-    string message = "Your seat is confirmed";
+    const string message = "Your seat is confirmed";
 
     _email.SendMessage(passenger.Email, message);
 

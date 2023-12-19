@@ -1,6 +1,5 @@
 ﻿namespace Packt.CloudySkiesAir.Chapter8 {
   public class CargoFlightInfoViolatesLSP : FlightInfo {
-
     public decimal TonsOfCargo { get; set; }
 
     public override int RewardMiles =>

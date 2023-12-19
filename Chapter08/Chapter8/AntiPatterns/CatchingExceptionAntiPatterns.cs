@@ -2,7 +2,7 @@
 
 namespace Packt.CloudySkiesAir.Chapter8.AntiPatterns;
 
-public class CatchingExceptionAntiPatterns {
+public static class CatchingExceptionAntiPatterns {
   public static void DontCatchException1() {
     try {
       AMethodThatMayThrowExceptions();
@@ -34,7 +34,7 @@ public class CatchingExceptionAntiPatterns {
   }
 
   /// <summary>
-  /// This method exists to randomly throw exceptions. 
+  /// This method exists to randomly throw exceptions.
   /// This is not a serious method and you should never do anything like this.
   /// </summary>
   /// <exception cref="FileNotFoundException">Thrown if a file could not be found</exception>
@@ -50,5 +50,4 @@ public class CatchingExceptionAntiPatterns {
         throw new SecurityException("Ah ah ah; you didn't say the magic word.");
     }
   }
-
 }

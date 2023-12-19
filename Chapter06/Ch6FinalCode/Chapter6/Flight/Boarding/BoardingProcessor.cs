@@ -1,7 +1,6 @@
 ﻿namespace Packt.CloudySkiesAir.Chapter6.Flight.Boarding;
 
 public class BoardingProcessor {
-
   public int CurrentBoardingGroup { get; set; } = 2;
   public BoardingStatus Status { get; set; }
   readonly int[] _priorityLaneGroups = [1, 2];

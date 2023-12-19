@@ -9,7 +9,6 @@ public class BaggageCalculator {
 
   public decimal CalculatePrice(int bags, int carryOn,
     int passengers, bool isHoliday) {
-
     decimal total = 0;
 
     void addFeeToTotal(string name, decimal fee) {
