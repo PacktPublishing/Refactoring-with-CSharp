@@ -1,14 +1,10 @@
-using System;
-using System.Collections.Generic;
-using Xunit;
-
 namespace Packt.CloudySkiesAir.Chapter5.Tests {
-    public class FlightSchedulerTests
+  public class FlightSchedulerTests
     {
-        private readonly FlightScheduler _flightScheduler;
+        readonly FlightScheduler _flightScheduler;
 
-        private readonly Airport _airport1;
-        private readonly Airport _airport2;
+        readonly Airport _airport1;
+        readonly Airport _airport2;
 
         public FlightSchedulerTests()
         {

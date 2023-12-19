@@ -11,14 +11,14 @@ public class PassengerFlightTests {
     [TestCase(6)]
     public void AddingAPassengerShouldResultInPassengers(int passengers) {
         // Arrange
-        PassengerFlightInfo flight = new();
+        PassengerFlightInfo flight = new PassengerFlightInfo();
 
         // Act
         flight.Load(passengers);
 
         // Assert
         int actual = flight.Passengers;
-        Assert.AreEqual(passengers, actual);
+        Assert.That(actual, Is.EqualTo(passengers));
         Assert.That(actual, Is.EqualTo(passengers));
     }
 }

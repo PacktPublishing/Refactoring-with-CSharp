@@ -3,8 +3,8 @@ using Bogus;
 namespace Packt.CloudySkiesAir.Chapter3; 
 
 public class PassengerGenerator {
-  private static readonly Random _random = new();
-  private readonly Faker _faker = new();
+  static readonly Random _random = new();
+  readonly Faker _faker = new();
 
   public Passenger GeneratePassenger() {
     string firstName = _faker.Name.FirstName();
@@ -23,7 +23,7 @@ public class PassengerGenerator {
   }
 
   public List<Passenger> GeneratePassengers(int count) {
-    List<Passenger> passengers = new();
+    List<Passenger> passengers = [];
     for (int i = 0; i < count; i++) {
       passengers.Add(GeneratePassenger());
     }

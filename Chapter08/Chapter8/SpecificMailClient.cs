@@ -1,7 +1,7 @@
 ﻿namespace Packt.CloudySkiesAir.Chapter8; 
 
 public class SpecificMailClient: IEmailClient {
-  private readonly string connectionString;
+  readonly string connectionString;
 
   public SpecificMailClient(string connectionString) {
     this.connectionString = connectionString;

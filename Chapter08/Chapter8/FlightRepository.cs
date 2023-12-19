@@ -3,11 +3,11 @@ using System.Data.SqlClient;
 
 namespace Packt.CloudySkiesAir.Chapter8;
 
-public class FlightRepository : IDisposable {
+public sealed class FlightRepository : IDisposable {
   // Usually you won't have a connection string in code, but read it from a config file
-  private string connectionString = @"Data Source=localhost\SQLEXPRESS;Initial Catalog=CloudySkies;Integrated Security=True;";
+  readonly string connectionString = @"Data Source=localhost\SQLEXPRESS;Initial Catalog=CloudySkies;Integrated Security=True;";
 
-  private SqlConnection? _conn;
+  SqlConnection? _conn;
 
   public FlightInfo GetFlight(string id) {
     // Create & open connection if not currently open
@@ -38,7 +38,7 @@ public class FlightRepository : IDisposable {
     using SqlDataReader reader = command.ExecuteReader();
 
     // Return the list
-    List<FlightInfo> flights = new();
+    List<FlightInfo> flights = [];
     while (reader.Read()) {
       flights.Add(GetFlightFromDataReader(reader));
     }
@@ -48,17 +48,19 @@ public class FlightRepository : IDisposable {
 
   public void Dispose() => _conn?.Dispose();
 
-  private static FlightInfo GetFlightFromDataReader(SqlDataReader reader) {
-    FlightInfo info = new();
-    info.Id = reader.GetString("Id");
-    info.DepartureAirport = reader.GetString("Departure");
-    info.ArrivalAirport = reader.GetString("Arrival");
-    info.Miles = reader.GetInt32("Miles");
+    static FlightInfo GetFlightFromDataReader(SqlDataReader reader) {
+        FlightInfo info = new()
+        {
+            Id = reader.GetString("Id"),
+            DepartureAirport = reader.GetString("Departure"),
+            ArrivalAirport = reader.GetString("Arrival"),
+            Miles = reader.GetInt32("Miles")
+        };
 
     return info;
   }
 
-  private void OpenConnectionIfNeeded() {
+  void OpenConnectionIfNeeded() {
     _conn ??= new SqlConnection(connectionString);
 
     if (_conn.State == ConnectionState.Closed) {

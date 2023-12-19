@@ -1,7 +1,6 @@
 using Packt.CloudySkiesAir.Chapter9;
-using Shouldly;
 
-namespace Chapter9Tests; 
+namespace Chapter9Tests;
 
 public class MileageTrackerTests {
     [Fact]

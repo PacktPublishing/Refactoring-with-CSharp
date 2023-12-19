@@ -5,8 +5,8 @@ namespace Chapter12UnitTests;
 
 public class FlightSchedulerTests {
 
-    private readonly Airport _airport1;
-    private readonly Airport _airport2;
+    readonly Airport _airport1;
+    readonly Airport _airport2;
 
     public FlightSchedulerTests() {
         _airport1 = new() {
@@ -36,7 +36,7 @@ public class FlightSchedulerTests {
         Assert.Contains(flight, result);
     }
 
-    private PassengerFlightInfo CreateFlight(string id)
+    PassengerFlightInfo CreateFlight(string id)
       => new() {
           Id = id,
           Status = FlightStatus.OnTime,

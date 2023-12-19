@@ -4,9 +4,9 @@ namespace Packt.CloudySkiesAir.Chapter9.Flight.Scheduling;
 
 public class FlightInfo {
 
-  private readonly Dictionary<string, Passenger> _bookedSeats = new();
-  public Airport Departure { get; set; }
-  public Airport Arrival { get; set; }
+  readonly Dictionary<string, Passenger> _bookedSeats = [];
+  public required Airport Departure { get; set; }
+  public required Airport Arrival { get; set; }
 
   public IReadOnlyDictionary<string, Passenger> CurrentBookings => _bookedSeats.AsReadOnly();
 

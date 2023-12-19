@@ -4,7 +4,7 @@ public class BoardingProcessor {
 
   public int CurrentBoardingGroup { get; set; } = 2;
   public BoardingStatus Status { get; set; }
-  private int[] _priorityLaneGroups = new[] { 1, 2 };
+  readonly int[] _priorityLaneGroups = [1, 2];
 
   public BoardingProcessor() {
   }
@@ -30,7 +30,7 @@ public class BoardingProcessor {
     }
   }
 
-  private void DisplayBoardingHeader() {
+  void DisplayBoardingHeader() {
     switch (Status) {
       case BoardingStatus.NotStarted:
         Console.WriteLine("Boarding is closed and the plane has departed.");

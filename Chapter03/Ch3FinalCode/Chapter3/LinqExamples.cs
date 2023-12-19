@@ -1,44 +1,40 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Packt.CloudySkiesAir.Chapter3; 
+﻿namespace Packt.CloudySkiesAir.Chapter3;
 
 public class LinqExamples {
 
-  public void UseCorrectMethods() {
+  public static void UseCorrectMethods() {
     PassengerGenerator generator = new();
     List<Passenger> people = generator.GeneratePassengers(50);
 
-    Passenger author = people.FirstOrDefault(p => p.FullName == "Matt Eland");
+    Passenger? author = people.FirstOrDefault(p => p.FullName == "Matt Eland");
 
-    Console.WriteLine($"{author.FullName} is in group {author.BoardingGroup}");
+    if (author != null) {
+      Console.WriteLine($"{author.FullName} is in group {author.BoardingGroup}");
+    }
   }
 
-  public void CombineLinqMethods() {
+  public static void CombineLinqMethods() {
     PassengerGenerator generator = new();
     List<Passenger> people = generator.GeneratePassengers(50);
 
-    bool anyBoarded = people.Any(p => p.HasBoarded);
-    int numBoarded = people.Count(p => p.HasBoarded);
+    var anyBoarded = people.Any(p => p.HasBoarded);
+    var numBoarded = people.Count(p => p.HasBoarded);
     Passenger firstBoarded = people.First(p => p.HasBoarded);
   }
 
-  public void TransformingWithSelect() {
+  public static void TransformingWithSelect() {
     PassengerGenerator generator = new();
     List<Passenger> people = generator.GeneratePassengers(50);
 
-List<string> names = 
+var names = 
       people.Where(p => !p.HasBoarded)
             .Select(p => $"{p.FullName}-{p.BoardingGroup}")
             .ToList();      
   }
 
-  public void EnumeratingWithTakeAndSkip() {
+  public static void EnumeratingWithTakeAndSkip() {
     PassengerGenerator generator = new();
-    List<Passenger> people = generator.GeneratePassengers(50)
+    var people = generator.GeneratePassengers(50)
                                       .OrderBy(p => p.BoardingGroup)
                                       .ToList();
 
@@ -48,12 +44,12 @@ List<string> names =
 
   }
 
-  public void RangeIndexers() {
+  public static void RangeIndexers() {
     PassengerGenerator generator = new();
-    List<Passenger> people = generator.GeneratePassengers(50).ToList();
+    var people = generator.GeneratePassengers(50).ToList();
 
-    List<Passenger> firstThree = people[0..3];
-    List<Passenger> lastThree = people[^3..^0];
-    Passenger last = people[^1];
+    var firstThree = people[0..3];
+    var lastThree = people[^3..^0];
+    var last = people[^1];
   }
 }

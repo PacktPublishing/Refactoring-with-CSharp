@@ -1,8 +1,8 @@
 ﻿namespace Packt.CloudySkiesAir.Chapter2;
 
-internal class Program
+class Program
 {
-    private static void Main()
+    static void Main()
     {
         int numChecked = 2;
         int numCarryOn = 1;

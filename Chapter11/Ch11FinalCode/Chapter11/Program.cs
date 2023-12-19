@@ -3,9 +3,9 @@
 public class Program {
   public static void Main() {
     RefactorMe refactorMe = new RefactorMe();
-    refactorMe.DisplayRandomNumbers();
+    RefactorMe.DisplayRandomNumbers();
 
     DocumentMe documentMe = new DocumentMe();
-    documentMe.AddEvenNumbers(new int[] { 1, 2, 3 }, 42);
+    DocumentMe.AddEvenNumbers([1, 2, 3], 42);
   }
 }

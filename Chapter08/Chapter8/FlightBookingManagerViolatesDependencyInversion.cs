@@ -1,7 +1,7 @@
 ﻿namespace Packt.CloudySkiesAir.Chapter8;
 
 public class FlightBookingManagerViolatesDependencyInversion {
-  private readonly SpecificMailClient _email;
+  readonly SpecificMailClient _email;
   public FlightBookingManagerViolatesDependencyInversion(string connectionString) {
     _email = new SpecificMailClient(connectionString);
   }

@@ -4,7 +4,6 @@ using Microsoft.CodeAnalysis.CodeFixes;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Text;
-using System;
 using System.Collections.Immutable;
 using System.Composition;
 using System.Linq;
@@ -12,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Packt.Analyzers {
 
-    [Shared]
+  [Shared]
     [ExportCodeFixProvider(LanguageNames.CSharp, Name = nameof(ToStringCodeFix))]
     public class ToStringCodeFix : CodeFixProvider {
         public override ImmutableArray<string> FixableDiagnosticIds
@@ -46,7 +45,7 @@ namespace Packt.Analyzers {
             context.RegisterCodeFix(fix, diagnostic);
         }
 
-        private Task<Document> FixAsync(Document doc, TypeDeclarationSyntax typeDec) {
+        Task<Document> FixAsync(Document doc, TypeDeclarationSyntax typeDec) {
             // Add a new override of ToString that throws a NotImplementedException
 
             const string exType = "NotImplementedException";

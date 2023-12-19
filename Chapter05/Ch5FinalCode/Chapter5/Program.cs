@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Packt.CloudySkiesAir.Chapter5 {
+﻿namespace Packt.CloudySkiesAir.Chapter5 {
   public class Program {
     public static void Main() {
       Airport dep = new() {

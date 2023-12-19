@@ -15,7 +15,7 @@ public class Flight {
     public string Destination { get; set; }
     public DateTime DepartureTime { get; set; }
     public DateTime ArrivalTime { get; set; }
-    public string Gate { get; set; }
+    public string Gate { get; set; } = default!;
     public FlightStatus Status { get; set; }
 
     public override string ToString() {

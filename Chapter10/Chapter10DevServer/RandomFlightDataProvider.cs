@@ -4,7 +4,7 @@ namespace Packt.CloudySkiesAir.Chapter10.DevServer;
 
 public class RandomFlightDataProvider : IFlightProvider {
 
-    private readonly Dictionary<string, FlightInfo> _flights = new();
+    readonly Dictionary<string, FlightInfo> _flights = new();
 
     public RandomFlightDataProvider() {
         var faker = new Faker();
@@ -27,15 +27,13 @@ public class RandomFlightDataProvider : IFlightProvider {
         }
     }
 
-    private static void UpdateStatus(FlightInfo flight) {
+    static void UpdateStatus(FlightInfo flight) {
         if (flight.DepartureTime > DateTime.Now) {
             flight.Status = FlightStatus.Pending;
-        } else if (flight.ArrivalTime > DateTime.Now) {
-            flight.Status = FlightStatus.Active;
         } else {
-            flight.Status = FlightStatus.Completed;
-        }
+      flight.Status = flight.ArrivalTime > DateTime.Now ? FlightStatus.Active : FlightStatus.Completed;
     }
+  }
 
     public FlightInfo? FindFlight(string id) {
         string key = id.ToLower();

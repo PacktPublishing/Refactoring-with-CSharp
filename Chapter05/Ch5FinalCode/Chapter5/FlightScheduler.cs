@@ -3,7 +3,7 @@
 namespace Packt.CloudySkiesAir.Chapter5;
 
 public class FlightScheduler {
-  private readonly List<IFlightInfo> _flights = new();
+  readonly List<IFlightInfo> _flights = [];
 
   public void ScheduleFlight(string id, Airport depart, Airport arrive, DateTime departTime, DateTime arriveTime, int passengers) {
     PassengerFlightInfo flight = new() {

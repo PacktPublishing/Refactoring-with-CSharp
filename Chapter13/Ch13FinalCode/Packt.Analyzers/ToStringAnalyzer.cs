@@ -1,11 +1,10 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Collections.Immutable;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.Diagnostics;
 
 namespace Packt.Analyzers {
-    [DiagnosticAnalyzer(LanguageNames.CSharp)]
+  [DiagnosticAnalyzer(LanguageNames.CSharp)]
     public class ToStringAnalyzer : DiagnosticAnalyzer {
 
         public static readonly DiagnosticDescriptor Rule =
@@ -26,7 +25,7 @@ namespace Packt.Analyzers {
             con.RegisterSymbolAction(Analyze, SymbolKind.NamedType);
         }
 
-        private static void Analyze(SymbolAnalysisContext con) {
+        static void Analyze(SymbolAnalysisContext con) {
             INamedTypeSymbol sym = (INamedTypeSymbol)con.Symbol;
 
             IMethodSymbol toString =

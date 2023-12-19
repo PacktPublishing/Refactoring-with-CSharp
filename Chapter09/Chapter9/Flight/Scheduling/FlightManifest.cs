@@ -2,10 +2,10 @@
 
 namespace Packt.CloudySkiesAir.Chapter9.Flight.Scheduling {
   public record FlightManifest {
-    public Passenger[] Passengers { get; internal set; }
-    public string[] BookedSeats { get; internal set; }
+    public Passenger[] Passengers { get; internal set; } = [];
+    public string[] BookedSeats { get; internal set; } = [];
     public int PassengerCount { get; internal set; }
-    public Airport Arrival { get; internal set; }
-    public Airport Departure { get; internal set; }
+    public Airport Arrival { get; internal set; } = default!;
+    public Airport Departure { get; internal set; } = default!;
   }
 }

@@ -1,15 +1,14 @@
 ﻿using Bogus;
 using Packt.CloudySkiesAir.Chapter9.Flight.Scheduling;
 using Packt.CloudySkiesAir.Chapter9.Flight.Scheduling.Flights;
-using Shouldly;
 using System.Diagnostics;
 
 namespace Chapter9Tests;
 
 public class FlightSchedulerTests {
 
-    private readonly Faker<Airport> _airportFaker;
-    private readonly Faker<PassengerFlightInfo> _flightFaker;
+    readonly Faker<Airport> _airportFaker;
+    readonly Faker<PassengerFlightInfo> _flightFaker;
 
     public FlightSchedulerTests() {
         _airportFaker = new Faker<Airport>()
@@ -61,7 +60,7 @@ public class FlightSchedulerTests {
         // Assert
         var result = scheduler.GetAllFlights();
         Assert.NotNull(result);
-        Assert.Equal(1, result.Count());
+        Assert.Single(result);
         Assert.Contains(flight, result);
     }
 
@@ -71,11 +70,11 @@ public class FlightSchedulerTests {
         FlightScheduler scheduler = new();
         PassengerFlightInfo flight = _flightFaker.Generate();
 
-        // Act
-        Action testAction = () => scheduler.ScheduleFlight(flight);
+    // Act
+    void testAction() => scheduler.ScheduleFlight(flight);
 
-        // Assert
-        TimeSpan maxTime = TimeSpan.FromMilliseconds(100);
+    // Assert
+    TimeSpan maxTime = TimeSpan.FromMilliseconds(100);
         Should.CompleteIn(testAction, maxTime);
     }
 

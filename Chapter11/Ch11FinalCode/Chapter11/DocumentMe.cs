@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Packt.CloudySkiesAir.Chapter11;
+﻿namespace Packt.CloudySkiesAir.Chapter11;
 
 public class DocumentMe {
 
@@ -15,7 +9,7 @@ public class DocumentMe {
   /// <param name="total">The starting total to add to. Defaults to 0.</param>
   /// <returns>The total of all even numbers in the array.</returns>
   /// <exception cref="ArgumentException">Thrown when the array is null or empty.</exception>
-  public int AddEvenNumbers(int[]? numbers, int total = 0) {
+  public static int AddEvenNumbers(int[]? numbers, int total = 0) {
     if (numbers == null || numbers.Length == 0) {
       const string message = "There must be at least 1 element";
       throw new ArgumentException(message, nameof(numbers));

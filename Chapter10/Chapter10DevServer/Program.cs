@@ -1,3 +1,4 @@
+using Microsoft.Extensions.Primitives;
 using Packt.CloudySkiesAir.Chapter10.DevServer;
 using System.Net;
 
@@ -18,7 +19,7 @@ if (app.Environment.IsDevelopment()) {
 }
 
 app.Use((context, next) => {
-    string apiKey = context.Request.Headers["x-api-key"];
+    StringValues apiKey = context.Request.Headers["x-api-key"];
     if (apiKey != "RefactoringWithCSharpBook") {
         context.Response.StatusCode = (int)HttpStatusCode.Unauthorized;
         return Task.CompletedTask;

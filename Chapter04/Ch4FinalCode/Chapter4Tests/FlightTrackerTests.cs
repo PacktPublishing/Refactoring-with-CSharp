@@ -1,13 +1,10 @@
-using System;
 using Packt.CloudySkiesAir.Chapter4;
 using Shouldly;
-using Xunit;
 
-namespace PacktCloudySkiesAirTests.Chapter4
-{
-    public class FlightTrackerTests
+namespace PacktCloudySkiesAirTests.Chapter4 {
+  public class FlightTrackerTests
     {
-        private readonly FlightTracker _target;
+        readonly FlightTracker _target;
 
         public FlightTrackerTests()
         {

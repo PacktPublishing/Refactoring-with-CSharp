@@ -1,7 +1,7 @@
 ﻿namespace Packt.CloudySkiesAir.Chapter4;
 
 public class FlightTracker {
-    private readonly List<Flight> _flights = new();
+    private readonly List<Flight> _flights = [];
 
     public Flight ScheduleNewFlight(string id, string dest, DateTime depart) {
         Flight flight = new(id, dest, depart) {
@@ -22,11 +22,11 @@ public class FlightTracker {
     }
 
     public Flight? MarkFlightDelayed(string id, DateTime newDepartureTime) {
-        Action<Flight> updateAction = (flight) => {
+        void updateAction(Flight flight) {
             flight.DepartureTime = newDepartureTime;
             flight.Status = FlightStatus.Delayed;
             Console.WriteLine($"{id} delayed until {newDepartureTime.Format()}");
-        };
+        }
         return UpdateFlight(id, updateAction);
     }
 

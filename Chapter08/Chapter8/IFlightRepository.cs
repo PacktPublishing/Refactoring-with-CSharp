@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Packt.CloudySkiesAir.Chapter8;
+﻿namespace Packt.CloudySkiesAir.Chapter8;
 
 // This interface violates the interface segregation principle.
 // A better model would be to separate it into IFlightProvider and IFlightRepository

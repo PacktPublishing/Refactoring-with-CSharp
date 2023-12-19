@@ -1,9 +1,9 @@
 ﻿namespace Packt.CloudySkiesAir.Chapter6.Flight.Scheduling;
 
 public class Airport {
-  public string Country { get; set; }
-  public string Code { get; set; }
-  public string Name { get; set; }
+  public required string Country { get; set; }
+  public required string Code { get; set; }
+  public required string Name { get; set; }
 
   public override bool Equals(object? obj) {
     return obj is Airport airport &&

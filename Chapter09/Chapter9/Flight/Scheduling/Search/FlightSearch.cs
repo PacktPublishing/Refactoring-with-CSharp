@@ -1,6 +1,4 @@
-﻿using Packt.CloudySkiesAir.Chapter9.Flight.Scheduling;
-
-namespace Packt.CloudySkiesAir.Chapter9.Flight.Scheduling.Search;
+﻿namespace Packt.CloudySkiesAir.Chapter9.Flight.Scheduling.Search;
 
 public class FlightSearch {
   public Airport? Depart { get; set; }

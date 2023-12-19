@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Packt.CloudySkiesAir.Chapter8;
+﻿namespace Packt.CloudySkiesAir.Chapter8;
 
 /// <summary>
 /// This class is responsible for tracking information 

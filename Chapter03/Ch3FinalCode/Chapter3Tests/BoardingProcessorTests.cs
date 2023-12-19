@@ -1,5 +1,3 @@
-using Packt.CloudySkiesAir.Chapter3;
-
 namespace Packt.CloudySkiesAir.Chapter3.Tests;
 
 public class BoardingProcessorTests {

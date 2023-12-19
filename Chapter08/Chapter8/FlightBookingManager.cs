@@ -1,7 +1,7 @@
 ﻿namespace Packt.CloudySkiesAir.Chapter8;
 
 public class FlightBookingManager {
-  private readonly IEmailClient _email;
+  readonly IEmailClient _email;
   public FlightBookingManager(IEmailClient email) {
     _email = email;
   }

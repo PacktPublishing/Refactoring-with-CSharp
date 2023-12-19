@@ -5,7 +5,7 @@ using Packt.CloudySkiesAir.Chapter6.Helpers;
 namespace Packt.CloudySkiesAir.Chapter6.Flight;
 
 public class FlightTracker {
-  private readonly FlightScheduler _scheduler;
+  readonly FlightScheduler _scheduler;
 
   public FlightTracker(FlightScheduler scheduler) {
     _scheduler = scheduler;
@@ -41,7 +41,7 @@ public class FlightTracker {
     });
   }
 
-  private IFlightInfo? UpdateFlightIfFound(string id, Action<IFlightInfo> updateAction) {
+  IFlightInfo? UpdateFlightIfFound(string id, Action<IFlightInfo> updateAction) {
     IFlightInfo? flight = FindFlightById(id);
     if (flight != null) {
       updateAction(flight);
@@ -51,6 +51,6 @@ public class FlightTracker {
     return flight;
   }
 
-  private IFlightInfo? FindFlightById(string id) =>
+  IFlightInfo? FindFlightById(string id) =>
       _scheduler.GetAllFlights().FirstOrDefault(f => f.Id == id);
 }

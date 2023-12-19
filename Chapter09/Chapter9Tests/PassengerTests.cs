@@ -1,14 +1,7 @@
 ﻿using Bogus;
-using Moq;
 using Packt.CloudySkiesAir.Chapter9.Flight.Boarding;
-using Shouldly;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Chapter9Tests; 
+namespace Chapter9Tests;
 
 public class PassengerTests {
 
@@ -71,7 +64,7 @@ public class PassengerTests {
         message.ShouldBe("Please Wait");
     }
 
-    private static Faker<Passenger> BuildPersonFaker() {
+    static Faker<Passenger> BuildPersonFaker() {
         // Arrange
         Faker<Passenger> faker = new();
         faker.RuleFor(p => p.FirstName, f => f.Person.FirstName)

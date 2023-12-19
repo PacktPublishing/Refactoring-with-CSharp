@@ -13,16 +13,17 @@
           .OrderBy(p => p.LastName)
           .ThenBy(p => p.FirstName);
 
-      FlightManifest manifest = new();
-      manifest.Arrival = new Airport() { 
-        Code = flight.Arrival.Code, 
-        Country = flight.Arrival.Country, 
-        Name = flight.Arrival.Name 
-      };
-      manifest.Departure = new Airport() {
-        Code = flight.Departure.Code,
-        Country = flight.Departure.Country,
-        Name = flight.Departure.Name
+      FlightManifest manifest = new() {
+        Arrival = new Airport() {
+          Code = flight.Arrival.Code,
+          Country = flight.Arrival.Country,
+          Name = flight.Arrival.Name
+        },
+        Departure = new Airport() {
+          Code = flight.Departure.Code,
+          Country = flight.Departure.Country,
+          Name = flight.Departure.Name
+        }
       };
 
       int passengerCount = 0;
@@ -31,7 +32,7 @@
       }
 
       manifest.PassengerCount = passengerCount;
-      manifest.Passengers = passengers.ToList().ToArray();
+      manifest.Passengers = passengers.ToArray();
 
       return manifest;
     }

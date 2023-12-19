@@ -5,7 +5,7 @@ public class RefactorMe {
 /// <summary>
 /// Displays a sequence of 10 random numbers.
 /// </summary>
-public void DisplayRandomNumbers() {
+public static void DisplayRandomNumbers() {
     List<int> numbers = new(10);
     Random rand = new();
 

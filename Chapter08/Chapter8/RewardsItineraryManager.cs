@@ -1,7 +1,7 @@
 ﻿namespace Packt.CloudySkiesAir.Chapter8;
 
 public class RewardsItineraryManager : ItineraryManager {
-  private const int BonusMilesPerFlight = 100;
+  const int BonusMilesPerFlight = 100;
   public override void FlightCompleted(FlightInfo? nextFlight) {
     base.FlightCompleted(nextFlight);
     AccumulateMiles(BonusMilesPerFlight);

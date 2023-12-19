@@ -3,7 +3,7 @@
 namespace Packt.CloudySkiesAir.Chapter12.Flight.Scheduling;
 
 public class FlightScheduler {
-  private readonly List<IFlightInfo> _flights = new();
+  readonly List<IFlightInfo> _flights = new();
 
   public void ScheduleFlight(IFlightInfo flight) {
     _flights.Add(flight);

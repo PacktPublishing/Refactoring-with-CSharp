@@ -1,8 +1,8 @@
-﻿using Packt.CloudySkiesAir.Chapter8;
+﻿namespace Packt.CloudySkiesAir.Chapter8 {
+  public class CargoFlightInfo : FlightInfo {
 
-public class CargoFlightInfo : FlightInfo {
+    public decimal TonsOfCargo { get; set; }
 
-  public decimal TonsOfCargo { get; set; }
-
-  public override int RewardMiles => 0;
+    public override int RewardMiles => 0;
+  }
 }
